@@ -1,0 +1,72 @@
+{
+    // General editor settings
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "files.autoSave": "onWindowChange",
+
+    // File-specific settings
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "[css]": {
+        "editor.formatOnSave": true
+    },
+    "[html]": {
+        "editor.formatOnSave": true
+    },
+    "[markdown]": {
+        "editor.formatOnSave": true
+    },
+
+    // Terminal settings
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shellArgs.linux": ["-l"],
+
+    // Git settings
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+
+    // Exclude specific files and directories from the file explorer
+    "files.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.github": true,
+        "**/.devcontainer": true,
+        "**/.husky": true,
+        "**/.prettierignore": true,
+        "**/package-lock.json": true,
+        "**/.hugo_build.lock": true,
+        "**/.gitignore": true,
+        "**/.huskyrc": true,
+        "**/.lintstagedrc": true,
+        "**/.prettierrc": true,
+        "**/.stylelintrc": true,
+        "**/CODE_OF_CONDUCT.md": true,
+        "**/CONTRIBUTING.md": true,
+        "**/LICENSE": true,
+        "**/SECURITY.md": true,
+        "**/.eslintrc.json": true,
+        "**/netlify.toml": true,
+        "**/commitlint.config.js": true
+    },
+
+    // No changes to search or file watcher settings
+    "search.exclude": {
+         "**/.git": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.github": true,
+        "**/.devcontainer": true,
+        "**/.husky": true
+    },
+    "files.watcherExclude": {
+         "**/.git": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.github": true,
+        "**/.devcontainer": true,
+        "**/.husky": true,
+    }
+}
