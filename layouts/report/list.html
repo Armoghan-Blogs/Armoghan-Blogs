@@ -1,0 +1,382 @@
+{{ define "main" }}
+
+<style>
+    .custom-card {
+        padding: 1.25rem;
+        margin: 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #d1d5db;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        /* Responsive adjustments */
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-card h2 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+
+    .custom-card div {
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .stats-card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .summary-section {
+        padding: 2rem;
+        overflow-x: auto;
+    }
+
+    .summary-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .summary-section table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .summary-section th, .summary-section td {
+        padding: 1rem;
+        text-align: left;
+        border: 1px solid #d1d5db;
+    }
+
+    .summary-section thead {
+        font-weight: 600;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-decoration: underline;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        .stats-card-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .stats-card-container {
+            grid-template-columns: 1fr;
+        }
+
+        .custom-card h2 {
+            font-size: 1rem;
+        }
+
+        .custom-card div {
+            font-size: 0.75rem;
+        }
+
+        .summary-section {
+            padding: 1rem;
+        }
+
+        .summary-section h2 {
+            font-size: 1.25rem;
+        }
+
+        .summary-section th, .summary-section td {
+            padding: 0.75rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .summary-section {
+            padding: 0.5rem;
+        }
+
+        .summary-section h2 {
+            font-size: 1rem;
+        }
+
+        .summary-section th, .summary-section td {
+            padding: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+    }
+</style>
+
+
+<div class="container mx-auto px-4 py-8">
+    <div class="text-center mb-8">
+        <div class="title">Site Report</div>
+        <div class="stats-card-container">
+            <!-- Total articles card -->
+            <div class="custom-card">
+                <h2>Total Articles:</h2>
+                <div>{{ len .Site.RegularPages }}</div>
+            </div>
+
+            <!-- Total tags card -->
+            <div class="custom-card">
+                <h2>Total Tags:</h2>
+                <div>{{ len (index .Site.Taxonomies "tags") }}</div>
+            </div>
+
+            <!-- Total sections card -->
+            <div class="custom-card">
+                <h2>Total Sections:</h2>
+                <div>{{ sub (len .Site.Sections) 1 }}</div>
+            </div>
+
+            <!-- Total unique series card -->
+            <div class="custom-card">
+                <h2>Total Series:</h2>
+                <div>{{ len (index .Site.Taxonomies "series") }}</div>
+            </div>
+
+            <!-- Total unique keywords card -->
+            <div class="custom-card">
+                <h2>Total Keywords:</h2>
+                <div>{{ len (index .Site.Taxonomies "keywords") }}</div>
+            </div>
+
+            <!-- Total categories card -->
+            <div class="custom-card">
+                <h2>Total Categories:</h2>
+                <div>{{ len .Site.Taxonomies.categories }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-section mt-8 p-6">
+        <h2 class="text-2xl font-bold mb-4">Sections Summary:</h2>
+        <div class="text-lg">
+            {{ $sections := slice }}
+            {{ range .Site.Sections }}
+                {{ $sectionTitle := .Title }}
+                {{ if ne $sectionTitle "Site Report" }}
+                {{ if ne $sectionTitle "Content Manager" }}
+                    {{ $sectionPermalink := .RelPermalink }}
+                    {{ $cleanPermalink := replace $sectionPermalink "/" "" }}
+                    {{ $sectionPages := where $.Site.RegularPages "Section" $cleanPermalink }}
+                    {{ $totalArticles := len $sectionPages }}
+                    {{ $sections = $sections | append (dict "title" $sectionTitle "permalink" $sectionPermalink "total" $totalArticles) }}
+                {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ if eq (len $sections) 0 }}
+                <p><strong>No data found</strong></p>
+            {{ else }}
+                <table class="w-full border-separate">
+                    <thead class="bg-gray-200 text-gray-800">
+                        <tr>
+                            <th class="px-6 py-3 border-b">No.</th>
+                            <th class="px-6 py-3 border-b">Section</th>
+                            <th class="px-6 py-3 border-b">Total Articles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range $index, $section := $sections }}
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-6 py-4 border-b">{{ add $index 1 }}</td>
+                            <td class="px-6 py-4 border-b">
+                                <a href="{{ $section.permalink }}" class="text-blue-600 hover:text-blue-800">{{ $section.title }}</a>
+                            </td>
+                            <td class="px-6 py-4 border-b">
+                                {{ $adjustedTotal := $section.total }}
+                                {{ if lt $adjustedTotal 0 }}0{{ else }}{{ $adjustedTotal }}{{ end }}
+                            </td>
+                        </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            {{ end }}
+        </div>
+    </div>
+
+    <section class="summary-section mt-8 p-6">
+        <h2 class="text-2xl font-bold mb-4 pb-2">Tags Summary:</h2>
+        <div class="text-lg">
+            {{ $tags := slice }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+                    {{ $tags = $tags | append (dict "name" $name "permalink" .Permalink) }}
+                {{ end }}
+            {{ end }}
+
+            {{ $rowCount := len $tags }}
+            {{ if eq $rowCount 0 }}
+                <p><strong>No data found</strong></p>
+            {{ else }}
+                <div class="{{ if gt $rowCount 5 }}overflow-y-auto max-h-60 scrollbar-hidden{{ else }}max-h-fit{{ end }}">
+                    <table class="w-full min-w-full">
+                        <thead class="bg-gray-200 text-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 border-b">No.</th>
+                                <th class="px-6 py-3 border-b">Tags</th>
+                                <th class="px-6 py-3 border-b">Total Articles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ range $index, $tag := $tags }}
+                            <tr class="hover:bg-gray-100 transition-colors">
+                                <td class="px-6 py-4 border-b">{{ add $index 1 }}</td>
+                                <td class="px-6 py-4 border-b">
+                                    <a href="{{ $tag.permalink }}" class="text-blue-600 hover:text-blue-800">{{ $tag.name }}</a>
+                                </td>
+                                <td class="px-6 py-4 border-b">{{ len ($.Site.GetPage (printf "/tags/%s" $tag.name)).Pages }}</td>
+                            </tr>
+                            {{ end }}
+                        </tbody>
+                    </table>
+                </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="summary-section mt-8 p-6">
+        <h2 class="text-2xl font-bold mb-4 pb-2">Categories Summary:</h2>
+        <div class="text-lg">
+            {{ $categories := slice }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+                    {{ $categories = $categories | append (dict "name" $name "permalink" .Permalink) }}
+                {{ end }}
+            {{ end }}
+
+            {{ $rowCount := len $categories }}
+            {{ if eq $rowCount 0 }}
+                <p><strong>No data found</strong></p>
+            {{ else }}
+                <div class="{{ if gt $rowCount 5 }}overflow-y-auto max-h-60 scrollbar-hidden{{ else }}max-h-fit{{ end }}">
+                    <table class="w-full min-w-full">
+                        <thead class="bg-gray-200 text-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 border-b">No.</th>
+                                <th class="px-6 py-3 border-b">Categories</th>
+                                <th class="px-6 py-3 border-b">Total Articles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ range $index, $category := $categories }}
+                            <tr class="hover:bg-gray-100 transition-colors">
+                                <td class="px-6 py-4 border-b">{{ add $index 1 }}</td>
+                                <td class="px-6 py-4 border-b">
+                                    <a href="{{ $category.permalink }}" class="text-blue-600 hover:text-blue-800">{{ $category.name }}</a>
+                                </td>
+                                <td class="px-6 py-4 border-b">{{ len ($.Site.GetPage (printf "/categories/%s" $category.name)).Pages }}</td>
+                            </tr>
+                            {{ end }}
+                        </tbody>
+                    </table>
+                </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="summary-section mt-8 p-6">
+        <h2 class="text-2xl font-bold mb-4 pb-2">Series Summary:</h2>
+        <div class="text-lg">
+            {{ $series := slice }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.series }}
+                {{ with $.Site.GetPage (printf "/series/%s" $name) }}
+                    {{ $series = $series | append (dict "name" $name "permalink" .Permalink) }}
+                {{ end }}
+            {{ end }}
+
+            {{ $rowCount := len $series }}
+            {{ if eq $rowCount 0 }}
+                <p><strong>No data found</strong></p>
+            {{ else }}
+                <div class="{{ if gt $rowCount 5 }}overflow-y-auto max-h-60 scrollbar-hidden{{ else }}max-h-fit{{ end }}">
+                    <table class="w-full min-w-full">
+                        <thead class="bg-gray-200 text-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 border-b">No.</th>
+                                <th class="px-6 py-3 border-b">Series</th>
+                                <th class="px-6 py-3 border-b">Total Articles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ range $index, $series := $series }}
+                            <tr class="hover:bg-gray-100 transition-colors">
+                                <td class="px-6 py-4 border-b">{{ add $index 1 }}</td>
+                                <td class="px-6 py-4 border-b">
+                                    <a href="{{ $series.permalink }}" class="text-blue-600 hover:text-blue-800">{{ $series.name }}</a>
+                                </td>
+                                <td class="px-6 py-4 border-b">{{ len ($.Site.GetPage (printf "/series/%s" $series.name)).Pages }}</td>
+                            </tr>
+                            {{ end }}
+                        </tbody>
+                    </table>
+                </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="summary-section mt-8 p-6">
+        <h2 class="text-2xl font-bold mb-4 pb-2">Keywords Summary:</h2>
+        <div class="text-lg">
+            {{ $keywords := slice }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.keywords }}
+                {{ with $.Site.GetPage (printf "/keywords/%s" $name) }}
+                    {{ $keywords = $keywords | append (dict "name" $name "permalink" .Permalink) }}
+                {{ end }}
+            {{ end }}
+
+            {{ $rowCount := len $keywords }}
+            {{ if eq $rowCount 0 }}
+                <p><strong>No data found</strong></p>
+            {{ else }}
+                <div class="{{ if gt $rowCount 5 }}overflow-y-auto max-h-60 scrollbar-hidden{{ else }}max-h-fit{{ end }}">
+                    <table class="w-full min-w-full">
+                        <thead class="bg-gray-200 text-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 border-b">No.</th>
+                                <th class="px-6 py-3 border-b">Keywords</th>
+                                <th class="px-6 py-3 border-b">Total Articles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ range $index, $keyword := $keywords }}
+                            <tr class="hover:bg-gray-100 transition-colors">
+                                <td class="px-6 py-4 border-b">{{ add $index 1 }}</td>
+                                <td class="px-6 py-4 border-b">
+                                    <a href="{{ $keyword.permalink }}" class="text-blue-600 hover:text-blue-800">{{ $keyword.name }}</a>
+                                </td>
+                                <td class="px-6 py-4 border-b">{{ len ($.Site.GetPage (printf "/keywords/%s" $keyword.name)).Pages }}</td>
+                            </tr>
+                            {{ end }}
+                        </tbody>
+                    </table>
+                </div>
+            {{ end }}
+        </div>
+    </section>
+
+</div>
+{{ end }}
