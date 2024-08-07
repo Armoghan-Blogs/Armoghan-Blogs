@@ -4,6 +4,7 @@
 [![Stars](https://img.shields.io/github/stars/Armoghan-Blogs/Armoghan-Blogs?style=social)](https://github.com/Armoghan-Blogs/Armoghan-Blogs)
 [![Forks](https://img.shields.io/github/forks/Armoghan-Blogs/Armoghan-Blogs?style=social)](https://github.com/Armoghan-Blogs/Armoghan-Blogs)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f030f19-a611-42dc-9698-5f2fd07ef96c/deploy-status)](https://app.netlify.com/sites/armoghan-blogs-3/deploys)
 [![Dependency Review 🔍](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependency-review.yml)
 [![Dependabot Updates](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependabot/dependabot-updates)
 [![GitHub](https://img.shields.io/github/license/Armoghan-Blogs/Armoghan-Blogs)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/blob/main/LICENSE)
