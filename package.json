@@ -23,7 +23,7 @@
     "update": "npm update",
     "depcheck": "npx depcheck",
     "cache-clean": "npm cache clean --force",
-    "rebuild-node-modules": "rm -rf node_modules && npm install",
+    "rebuild-node-modules": "rm -rf node_modules && npm install --legacy-peer-deps",
     "clean-logs": "rm -f hugo.build.lock && find . -name '*.log' -type f -delete",
     "prepare": "husky install"
   },
@@ -68,6 +68,9 @@
     "engines": {
     "node": ">=16.0.0"
   },
+  "dependencies": {
+    "husky": "^9.1.4"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
@@ -79,7 +82,6 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
     "htmlhint": "^1.1.4",
-    "husky": "^9.1.4",
     "lint-staged": "^15.2.8",
     "markdownlint": "^0.34.0",
     "prettier": "^3.3.3",
