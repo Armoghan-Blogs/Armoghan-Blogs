@@ -1,0 +1,66 @@
+# Dependabot configuration file for keeping dependencies up-to-date 🛠️
+version: 2
+
+updates:
+  # NPM packages updates 🌐
+  - package-ecosystem: "npm" # 🛠️ Node.js package ecosystem
+    directory: "/" # 📁 Location of package manifests (package.json)
+    schedule:
+      interval: "weekly" # ⏰ Frequency of updates
+    allow:
+      - dependency-type: "all" # 👥 Update all types of dependencies (direct and development)
+
+  # Go modules updates, including Hugo 📚
+  - package-ecosystem: "gomod" # 🏠 Hugo and Go modules
+    directory: "/" # 📁 Location of Go module manifests (for Hugo)
+    schedule:
+      interval: "weekly" # ⏰ Frequency of updates
+    allow:
+      - dependency-type: "all" # 👥 Update all types of dependencies (direct and indirect)
+
+  # DevContainers updates 🧩
+  - package-ecosystem: "devcontainers" # 🧩 DevContainer configuration
+    directory: "/" # 📁 Location of devcontainer.json
+    schedule:
+      interval: "weekly" # ⏰ Frequency of updates
+    allow:
+      - dependency-type: "all" # 👥 Update all types of dependencies (direct and development)
+
+# Custom pull request messages 🤖
+# PRs created by Dependabot will include the following title and body
+
+pr_title: "🚀 Dependency Upgrade: Your Project Just Got a Fresh Boost! 🌟"
+
+pr_body: |
+  ## 🎉 Dependency Updates Overview 🌟
+
+  This pull request includes essential updates to ensure your project remains cutting-edge and secure. Here's a detailed breakdown of what's been updated:
+
+  ### 📦 NPM Packages Updated
+  - **Location**: `package.json`
+  - **Details**: This update includes the latest versions of all Node.js packages. These updates can enhance performance, introduce new features, and provide critical security patches.
+  - **Files Affected**: `package.json` and `package-lock.json`
+
+  ### 📚 Go Modules and Hugo Upgrades
+  - **Location**: `go.mod` and `hugo.toml`
+  - **Details**: Updates to Go modules and Hugo dependencies. These changes ensure compatibility with the latest Go and Hugo features, improving functionality and security.
+  - **Files Affected**: `go.mod`, `go.sum`, `hugo.toml`
+
+  ### 🧩 DevContainers Configuration Refresh
+  - **Location**: `devcontainer.json`
+  - **Details**: Your DevContainer configuration has been updated. This ensures that your development environment is using the latest configurations and best practices.
+  - **Files Affected**: `devcontainer.json`
+
+  ## 🔍 What You Need to Do
+  - **Review**: Check the changes to confirm there are no breaking changes or compatibility issues.
+  - **Test**: Run your tests to ensure everything functions correctly with the updated dependencies.
+  - **Verify**: Make sure that the updated configurations align with your development setup.
+
+  ## 💡 Why This Matters
+  - **Security**: Keeping dependencies up-to-date helps protect your project from vulnerabilities.
+  - **Performance**: Updates often include performance improvements.
+  - **Features**: New versions may offer enhanced features and functionality.
+
+  If you have any questions or need adjustments, feel free to reach out. Thank you for maintaining a secure and robust project! 🙌
+
+  _Happy coding!_ 🚀
