@@ -4,7 +4,9 @@
   "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "format": "npm run prettier"
   },
   "keywords": [
     "hugo",
@@ -38,5 +40,8 @@
   "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme",
   "bugs": {
     "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
   }
 }

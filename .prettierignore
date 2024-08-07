@@ -1,0 +1,22 @@
+# Ignore all files by default
+*
+
+# Allow formatting of specific file types
+!*.js
+!*.html
+!*.md
+!*.css
+
+# Ignore specific directories
+.github/
+.vscode/
+.devcontainer/
+
+# Ignore specific files
+package.json
+package-lock.json
+.gitignore
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+ReadMe.md
+SECURITY.md
