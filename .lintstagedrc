@@ -1,0 +1,22 @@
+{
+  "*.{js,css,md}": [
+    "prettier --write",
+    "eslint --fix",
+    "git add"
+  ],
+  "*.html": [
+    "prettier --write",
+    "htmlhint",
+    "git add"
+  ],
+  "*.css": [
+    "prettier --write",
+    "stylelint --fix",
+    "git add"
+  ],
+  "*.md": [
+    "prettier --write",
+    "markdownlint",
+    "git add"
+  ]
+}
