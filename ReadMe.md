@@ -22,7 +22,7 @@ Welcome to **Armoghan Blogs**! This personal blog website is where I share my th
 **Armoghan Blogs** is powered by:
 
 - **[Hugo](https://gohugo.io/)**: A blazing-fast static site generator that helps in building websites quickly and efficiently.
-- **[Blowfish Theme](https://github.com/Blowfish-Theme/Blowfish)**: A minimalist and responsive theme for Hugo, providing a clean and modern design.
+- **[Blowfish Theme](https://github.com/nunocoracao/blowfish)**: A minimalist and responsive theme for Hugo, providing a clean and modern design.
 - **[Decap CMS](https://www.decapcms.org/)**: A user-friendly content management system that makes it easy to create and manage blog posts without complex configurations.
 
 ## 🛠️ Technologies Used
