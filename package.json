@@ -2,9 +2,9 @@
   "name": "armoghan-blogs",
   "version": "1.0.0",
   "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
-  "main": "index.js",
+  "main": ".commitlintrc.js",
   "scripts": {
-  "stylelint": "stylelint '**/*.css'",
+    "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "stylelint '**/*.css' --fix",
     "format": "npm run prettier",
     "prettier": "prettier --write .",
@@ -12,7 +12,16 @@
     "eslint:fix": "eslint . --fix",
     "htmlhint": "htmlhint '**/*.html'",
     "markdownlint": "markdownlint '**/*.md'",
-    "lint": "npm run eslint:fix && npm run stylelint:fix && npm run htmlhint && npm run markdownlint"
+    "lint": "npm run eslint:fix && npm run stylelint:fix && npm run htmlhint && npm run markdownlint",
+    "clean": "rm -rf public",
+    "audit": "npm audit",
+    "audit:fix": "npm audit --fix",
+    "update": "npm update",
+    "depcheck": "npx depcheck",
+    "cache-clean": "npm cache clean --force",
+    "rebuild-node-modules": "rm -rf node_modules && npm install",
+    "clean-logs": "rm -f hugo.build.lock && find . -name '*.log' -type f -delete",
+    "prepare": "husky install"
   },
   "keywords": [
     "hugo",
@@ -46,6 +55,14 @@
   "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme",
   "bugs": {
     "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
+  },
+    "browserslist": [
+    "last 1 version",
+    ">= 1%",
+    "not dead"
+  ],
+    "engines": {
+    "node": ">=16.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
