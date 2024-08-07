@@ -4,6 +4,10 @@
   "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
   "main": ".commitlintrc.js",
   "scripts": {
+    "dev": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch",
+    "prod": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch -e production",
+    "build": "hugo --gc --logLevel info --cleanDestinationDir --minify",
+    "serve": "concurrently \"npm run dev\" \"npm run decap-dev\"",
     "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "stylelint '**/*.css' --fix",
     "format": "npm run prettier",
