@@ -4,9 +4,11 @@
   "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
   "main": "index.js",
   "scripts": {
+   "stylelint": "stylelint '**/*.css'",
+    "stylelint:fix": "stylelint '**/*.css' --fix",
+    "format": "npm run prettier",
     "prettier": "prettier --write .",
-    "prettier:check": "prettier --check .",
-    "format": "npm run prettier"
+    "prettier:check": "prettier --check ."
   },
   "keywords": [
     "hugo",
@@ -42,6 +44,8 @@
     "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "stylelint": "^16.8.1",
+    "stylelint-config-standard": "^36.0.1"
   }
 }

@@ -1,0 +1,20 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "max-empty-lines": 1,
+    "no-eol-whitespace": true,
+    "color-no-invalid-hex": true,
+    "font-family-no-duplicate-names": true,
+    "number-max-precision": 2,
+    "selector-max-class": 3,
+    "max-nesting-depth": 3,
+    "block-no-empty": true,
+    "declaration-block-trailing-semicolon": "always",
+    "font-weight-notation": "numeric",
+    "function-name-case": "lower",
+    "no-descending-specificity": true,
+    "no-duplicate-selectors": true,
+    "property-no-vendor-prefix": true
+  }
+}
