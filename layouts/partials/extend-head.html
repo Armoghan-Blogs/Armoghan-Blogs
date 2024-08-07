@@ -1,0 +1,49 @@
+{{- $sw := resources.Get "sw.js" }}
+{{- $swJS := $sw | js.Build }}
+{{- if eq hugo.Environment "production" }}
+  {{- $swJS = $sw | js.Build (dict "minify" true) | fingerprint }}
+{{- end }}
+
+<script>
+  const MAX_ATTEMPTS = 5;
+  const RETRY_INTERVAL = 10000; // 10 seconds
+  const ATTEMPTS_KEY = 'swRegistrationAttempts';
+
+  function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('{{ $swJS.RelPermalink }}', { scope: '/' })
+        .then(() => {
+          // Registration succeeded, reset attempts counter
+          localStorage.removeItem(ATTEMPTS_KEY);
+        })
+        .catch(() => {
+          // Registration failed
+          let attempts = parseInt(localStorage.getItem(ATTEMPTS_KEY)) || 0;
+          attempts++;
+
+          if (attempts < MAX_ATTEMPTS) {
+            // Increment attempts and retry
+            localStorage.setItem(ATTEMPTS_KEY, attempts);
+            setTimeout(registerServiceWorker, RETRY_INTERVAL);
+          } else {
+            // Max attempts reached, stop retrying
+            localStorage.removeItem(ATTEMPTS_KEY);
+          }
+        });
+    }
+  }
+
+  function initializeServiceWorker() {
+    const attempts = parseInt(localStorage.getItem(ATTEMPTS_KEY)) || 0;
+
+    if (attempts < MAX_ATTEMPTS) {
+      // Proceed with registration if we haven't reached max attempts
+      registerServiceWorker();
+    } else {
+      // Optionally handle the case where max attempts have been reached
+      console.warn('Max service worker registration attempts reached.');
+    }
+  }
+
+  window.addEventListener('load', initializeServiceWorker);
+</script>
