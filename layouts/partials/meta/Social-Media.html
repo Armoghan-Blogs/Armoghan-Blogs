@@ -1,0 +1,19 @@
+<!-- Twitter meta tag for specifying the Twitter username of the site -->
+<meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
+
+<!-- Twitter meta tag for specifying the Twitter username of the content creator -->
+<meta name="twitter:creator" content="{{ .Site.Params.twitter }}" />
+
+<!-- Author meta tag for specifying the author of the site -->
+{{ with .Site.Author.name }}
+<meta name="author" content="{{ . }}" />
+{{ end }}
+
+<!-- Links meta tags for specifying the author's social media profiles -->
+{{ with .Site.Author.links }}
+  {{ range $links := . }}
+    {{ range $name, $url := $links }}
+    <link href="{{ $url }}" rel="me" />
+    {{ end }}
+  {{ end }}
+{{ end }}
