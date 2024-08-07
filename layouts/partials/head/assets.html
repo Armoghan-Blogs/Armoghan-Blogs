@@ -1,0 +1,53 @@
+{{/* Asset bundles */}}
+    {{ $assets := newScratch }}
+    {{ $cssScheme := resources.Get (printf "css/schemes/%s.css" (.Site.Params.colorScheme | default "blowfish")) }}
+    {{ if not $cssScheme }}
+    {{ $cssScheme = resources.Get "css/schemes/blowfish.css" }}
+    {{ end }}
+    {{ $assets.Add "css" (slice $cssScheme) }}
+    {{ $cssMain := resources.Get "css/compiled/main.css" }}
+    {{ $assets.Add "css" (slice $cssMain) }}
+    {{ $cssCustom := resources.Get "css/custom.css" }}
+    {{ if $cssCustom }}
+    {{ $assets.Add "css" (slice $cssCustom) }}
+    {{ end }}
+    {{ $bundleCSS := $assets.Get "css" | resources.Concat "css/main.bundle.css" | resources.Minify | resources.Fingerprint
+    "sha512" }}
+    <link type="text/css" rel="stylesheet" href="{{ $bundleCSS.RelPermalink }}"
+      integrity="{{ $bundleCSS.Data.Integrity }}" />
+
+      {{ $jsAppearance := resources.Get "js/appearance.js" }}
+      {{ $jsAppearance = $jsAppearance | resources.ExecuteAsTemplate "js/appearance.js" . | resources.Minify |
+      resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $jsAppearance.RelPermalink }}"
+        integrity="{{ $jsAppearance.Data.Integrity }}"></script>
+      {{ if .Site.Params.enableSearch | default false }}
+      {{ $jsFuse := resources.Get "lib/fuse/fuse.min.js" }}
+      {{ $jsSearch := resources.Get "js/search.js" }}
+      {{ $assets.Add "js" (slice $jsFuse $jsSearch) }}
+      {{ end }}
+      {{ if .Site.Params.enableCodeCopy | default false }}
+      {{ $jsCode := resources.Get "js/code.js" }}
+      {{ $assets.Add "js" (slice $jsCode) }}
+      {{ end }}
+      {{ if .Site.Params.rtl | default false }}
+      {{ $jsRTL := resources.Get "js/rtl.js" }}
+      {{ $assets.Add "js" (slice $jsRTL) }}
+      {{ end }}
+      {{ if $assets.Get "js" }}
+      {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint
+      "sha512" }}
+      <script defer type="text/javascript" id="script-bundle" src="{{ $bundleJS.RelPermalink }}"
+        integrity="{{ $bundleJS.Data.Integrity }}" data-copy="{{ i18n " code.copy" }}" data-copied="{{ i18n " code.copied"
+        }}"></script>
+      {{ end }}
+
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3T9VZ3DM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'G-EH3T9VZ3DM');
+    </script>
