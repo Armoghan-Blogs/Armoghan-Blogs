@@ -1,0 +1,42 @@
+{
+  "name": "armoghan-blogs",
+  "version": "1.0.0",
+  "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hugo",
+    "hugo-theme",
+    "tailwind",
+    "dark-mode",
+    "static-site",
+    "content-management",
+    "decap-cms",
+    "decap-cms-app",
+    "netlify",
+    "blogs",
+    "web-development",
+    "responsive-design",
+    "frontend",
+    "site-generator",
+    "modern-web",
+    "opensource",
+    "website",
+    "personal-blog",
+    "armoghan-blogs",
+    "armoghan",
+    "blogging"
+  ],
+  "author": "Armoghan-ul-Mohmin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armoghan-Blogs/Armoghan-Blogs.git"
+  },
+  "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme",
+  "bugs": {
+    "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
+  }
+}
