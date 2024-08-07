@@ -1,0 +1,203 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Hugo Server (Development)",
+            "type": "shell",
+            "command": "npm run dev",
+            "problemMatcher": [],
+            "group": {
+                "kind": "serve",
+                "isDefault": false
+            },
+            "isBackground": true
+        },
+        {
+            "label": "Start Hugo Server (Production)",
+            "type": "shell",
+            "command": "npm run prod",
+            "problemMatcher": [],
+            "group": {
+                "kind": "serve",
+                "isDefault": false
+            },
+            "isBackground": true
+        },
+        {
+            "label": "Build Hugo Project",
+            "type": "shell",
+            "command": "npm run build",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Lint Code",
+            "type": "shell",
+            "command": "npm run lint",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Format Code with Prettier",
+            "type": "shell",
+            "command": "npm run prettier",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Prettier Check",
+            "type": "shell",
+            "command": "npm run prettier:check",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "ESLint Fix",
+            "type": "shell",
+            "command": "npm run eslint:fix",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Stylelint Fix",
+            "type": "shell",
+            "command": "npm run stylelint:fix",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "HTML Hint",
+            "type": "shell",
+            "command": "npm run htmlhint",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Markdown Lint",
+            "type": "shell",
+            "command": "npm run markdownlint",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Clean Project",
+            "type": "shell",
+            "command": "npm run clean",
+            "problemMatcher": [],
+            "group": {
+                "kind": "cleanup",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Audit Dependencies",
+            "type": "shell",
+            "command": "npm audit",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Audit Dependencies and Fix",
+            "type": "shell",
+            "command": "npm audit --fix",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Update Dependencies",
+            "type": "shell",
+            "command": "npm update",
+            "problemMatcher": [],
+            "group": {
+                "kind": "setup",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Check for Unused Dependencies",
+            "type": "shell",
+            "command": "npx depcheck",
+            "problemMatcher": [],
+            "group": {
+                "kind": "check",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Clean NPM Cache",
+            "type": "shell",
+            "command": "npm cache clean --force",
+            "problemMatcher": [],
+            "group": {
+                "kind": "cleanup",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Rebuild Node Modules",
+            "type": "shell",
+            "command": "rm -rf node_modules && npm install",
+            "problemMatcher": [],
+            "group": {
+                "kind": "setup",
+                "isDefault": false
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Prepare Husky",
+            "type": "shell",
+            "command": "npm run prepare",
+            "problemMatcher": [],
+            "group": {
+                "kind": "setup",
+                "isDefault": false
+            },
+            "isBackground": false
+        }
+    ]
+}
