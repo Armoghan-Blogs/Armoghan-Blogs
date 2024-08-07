@@ -1,110 +1,110 @@
 {
-	"name": "Armoghan Blogs",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {
-			"ppa": true,
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers/features/hugo:1": {
-			"extended": true,
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers-contrib/features/node-asdf:0": {
-			"version": "latest"
-		}
-	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [1313 , 8081],
+  "name": "Armoghan Blogs",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "ppa": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "extended": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "latest"
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [1313, 8081],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "bash -i -c 'nvm install --lts && npm install",
 
-	// Custom VS Code settings and extensions
-	"customizations": {
-		"vscode": {
-		  "extensions": [
-			"ms-vscode.go", // Go extension for VS Code
-			"ms-vscode.node-debug2", // Debugger for Node.js
-			"hashicorp.terraform", // Terraform support
-			"bungcip.better-toml", // TOML syntax highlighting and support
-			"davidanson.vscode-markdownlint", // Markdown linting
-			"esbenp.prettier-vscode", // Prettier - Code formatter
-			"yzhang.markdown-all-in-one", // Comprehensive Markdown editing
-			"tabnine.tabnine-vscode", // AI-powered code completion
-			"budparr.language-hugo-vscode", // Hugo support
-			"ms-vscode.vscode-typescript-next", // TypeScript support
-			"dbaeumer.vscode-eslint", // ESLint for JavaScript and TypeScript
-			"redhat.vscode-yaml", // YAML support
-			"be5invis.toml", // TOML support
-			"bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense
-			"CoenraadS.bracket-pair-colorizer-2", // Bracket Pair Colorizer
-			"aaron-bond.better-comments", // Better comments for readability
-			"streetsidesoftware.code-spell-checker", // Spell checker
-			"tal7aouy.icons", // VS Code icons
-			"formulahendry.auto-rename-tag", // Auto rename HTML/XML tags
-			"mikestead.dotenv", // Support for .env files
-			"visualstudioexptteam.vscodeintellicode", // IntelliCode for AI-assisted code completion
-			"ahmadawais.shades-of-purple", // Color scheme for VS Code
-			"christian-kohler.npm-intellisense", // NPM Intellisense
-			"kaellarkin.hugo-shortcode-syntax", // Shortcode syntax highlighter for Hugo
-			"eliostruyf.vscode-front-matter", // Front matter syntax highlighting in Markdown
-			"eliostruyf.vscode-hugo-themer", // Hugo theme file syntax highlighting
-			"naumovs.color-highlight" // Highlights colors in style files
-		  ],
-		  "settings": {
-			// Editor settings
-			"html.format.templating": true, // Enable HTML formatting for templating
-			"editor.formatOnSave": true, // Automatically format files on save
-			"editor.tabSize": 2, // Set tab size to 2 spaces
-			"files.autoSave": "onWindowChange", // Auto-save files when the window loses focus
-			"editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter
-			"editor.minimap.enabled": false, // Disable minimap
-			"editor.renderWhitespace": "all", // Show all whitespace characters
-			"editor.wordWrap": "on", // Enable word wrapping
-			"editor.mouseWheelZoom": true, // Enable zooming with mouse wheel
-			"editor.linkedEditing": true, // Enable linked editing for matching tags and brackets
-			"editor.formatOnPaste": true, // Format the content when pasting
-			"editor.cursorBlinking": "smooth", // Smooth blinking for the cursor
-			"editor.cursorStyle": "line", // Set cursor style to line
-			"files.autoSaveDelay": 1000, // Delay auto-save by 1000ms
-			"files.trimTrailingWhitespace": true, // Trim trailing whitespace on save
-			"editor.trimAutoWhitespace": true, // Trim auto-inserted whitespace
-			"files.insertFinalNewline": true, // Ensure files end with a newline
-			"editor.suggest.snippetsPreventQuickSuggestions": false, // Allow quick suggestions to show even if snippets are suggested
-			"editor.quickSuggestions": {
-			  "other": true, // Enable quick suggestions for other types of content
-			  "comments": true, // Enable quick suggestions in comments
-			  "strings": true // Enable quick suggestions in strings
-			},
-			"editor.rulers": [80], // Add a ruler at 80 characters
-			"files.exclude": {
-			  "**/.git": true, // Hide .git directory
-			  "**/.DS_Store": true, // Hide .DS_Store files
-			  "**/node_modules": true // Hide node_modules directory
-			},
-			"search.exclude": {
-			  "**/.git": true, // Exclude .git directory from search
-			  "**/node_modules": true // Exclude node_modules directory from search
-			},
-			"debug.openExplorerOnEnd": true, // Open the debug explorer when debugging ends
-			"debug.showInStatusBar": "always", // Always show debug information in the status bar
-			"workbench.colorTheme": "Shades of Purple (Super Dark)", // Set the color theme to Shades of Purple Dark
-			"workbench.iconTheme": "vscode-icons", // Set the icon theme to VS Code Icons
-			"git.autofetch": true, // Enable auto-fetch in Git
-			"terminal.integrated.fontSize": 14, // Set terminal font size
-			"terminal.integrated.scrollback": 10000, // Increase terminal scrollback buffer
-			"terminal.integrated.shell.linux": "/usr/bin/zsh", // Use Zsh as the default shell for Linux
-			"terminal.integrated.shell.osx": "/bin/zsh", // Use Zsh as the default shell for macOS
-			"terminal.integrated.shell.windows": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.XX.XX.0_x64__8wekyb3d8bbwe\\wt.exe", // Windows Terminal executable path for Windows
-			"terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.XX.XX.0_x64__8wekyb3d8bbwe\\wt.exe", // Use Windows Terminal as the external terminal
-			"terminal.external.linuxExec": "/usr/bin/x-terminal-emulator", // Default external terminal on Linux
-			"terminal.external.osxExec": "iTerm.app" // Default external terminal on macOS
-		  }
-		}
-	  },
+  // Custom VS Code settings and extensions
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.go", // Go extension for VS Code
+        "ms-vscode.node-debug2", // Debugger for Node.js
+        "bungcip.better-toml", // TOML syntax highlighting and support
+        "davidanson.vscode-markdownlint", // Markdown linting
+        "esbenp.prettier-vscode", // Prettier - Code formatter
+        "yzhang.markdown-all-in-one", // Comprehensive Markdown editing
+        "tabnine.tabnine-vscode", // AI-powered code completion
+        "budparr.language-hugo-vscode", // Hugo support
+        "ms-vscode.vscode-typescript-next", // TypeScript support
+        "dbaeumer.vscode-eslint", // ESLint for JavaScript and TypeScript
+        "redhat.vscode-yaml", // YAML support
+        "be5invis.toml", // TOML support
+        "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense
+        "CoenraadS.bracket-pair-colorizer-2", // Bracket Pair Colorizer
+        "aaron-bond.better-comments", // Better comments for readability
+        "streetsidesoftware.code-spell-checker", // Spell checker
+        "tal7aouy.icons", // VS Code icons
+        "formulahendry.auto-rename-tag", // Auto rename HTML/XML tags
+        "mikestead.dotenv", // Support for .env files
+        "visualstudioexptteam.vscodeintellicode", // IntelliCode for AI-assisted code completion
+        "ahmadawais.shades-of-purple", // Color scheme for VS Code
+        "christian-kohler.npm-intellisense", // NPM Intellisense
+        "kaellarkin.hugo-shortcode-syntax", // Shortcode syntax highlighter for Hugo
+        "eliostruyf.vscode-front-matter", // Front matter syntax highlighting in Markdown
+        "eliostruyf.vscode-hugo-themer", // Hugo theme file syntax highlighting
+        "naumovs.color-highlight", // Highlights colors in style files
+        "tal7aouy.icons" // Icons for Vscode
+      ],
+      "settings": {
+        // Editor settings
+        "html.format.templating": true, // Enable HTML formatting for templating
+        "editor.formatOnSave": true, // Automatically format files on save
+        "editor.tabSize": 2, // Set tab size to 2 spaces
+        "files.autoSave": "onWindowChange", // Auto-save files when the window loses focus
+        "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter
+        "editor.minimap.enabled": false, // Disable minimap
+        "editor.renderWhitespace": "all", // Show all whitespace characters
+        "editor.wordWrap": "on", // Enable word wrapping
+        "editor.mouseWheelZoom": true, // Enable zooming with mouse wheel
+        "editor.linkedEditing": true, // Enable linked editing for matching tags and brackets
+        "editor.formatOnPaste": true, // Format the content when pasting
+        "editor.cursorBlinking": "smooth", // Smooth blinking for the cursor
+        "editor.cursorStyle": "line", // Set cursor style to line
+        "files.autoSaveDelay": 1000, // Delay auto-save by 1000ms
+        "files.trimTrailingWhitespace": true, // Trim trailing whitespace on save
+        "editor.trimAutoWhitespace": true, // Trim auto-inserted whitespace
+        "files.insertFinalNewline": true, // Ensure files end with a newline
+        "editor.suggest.snippetsPreventQuickSuggestions": false, // Allow quick suggestions to show even if snippets are suggested
+        "editor.quickSuggestions": {
+          "other": true, // Enable quick suggestions for other types of content
+          "comments": true, // Enable quick suggestions in comments
+          "strings": true // Enable quick suggestions in strings
+        },
+        "editor.rulers": [80], // Add a ruler at 80 characters
+        "files.exclude": {
+          "**/.git": true, // Hide .git directory
+          "**/.DS_Store": true, // Hide .DS_Store files
+          "**/node_modules": true // Hide node_modules directory
+        },
+        "search.exclude": {
+          "**/.git": true, // Exclude .git directory from search
+          "**/node_modules": true // Exclude node_modules directory from search
+        },
+        "debug.openExplorerOnEnd": true, // Open the debug explorer when debugging ends
+        "debug.showInStatusBar": "always", // Always show debug information in the status bar
+        "workbench.colorTheme": "Shades of Purple (Super Dark)", // Set the color theme to Shades of Purple Dark
+        "workbench.iconTheme": "vscode-icons", // Set the icon theme to VS Code Icons
+        "git.autofetch": true, // Enable auto-fetch in Git
+        "terminal.integrated.fontSize": 14, // Set terminal font size
+        "terminal.integrated.scrollback": 10000, // Increase terminal scrollback buffer
+        "terminal.integrated.shell.linux": "/usr/bin/zsh", // Use Zsh as the default shell for Linux
+        "terminal.integrated.shell.osx": "/bin/zsh", // Use Zsh as the default shell for macOS
+        "terminal.integrated.shell.windows": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.XX.XX.0_x64__8wekyb3d8bbwe\\wt.exe", // Windows Terminal executable path for Windows
+        "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.XX.XX.0_x64__8wekyb3d8bbwe\\wt.exe", // Use Windows Terminal as the external terminal
+        "terminal.external.linuxExec": "/usr/bin/x-terminal-emulator", // Default external terminal on Linux
+        "terminal.external.osxExec": "iTerm.app" // Default external terminal on macOS
+      }
+    }
+  },
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "root"
 }
