@@ -12,21 +12,21 @@ autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = false
 
-# mainSections = ["section1", "section2"]
+mainSections = ["posts", "categories", "tutorials"]
 # robots = ""
 
 disableImageOptimization = false
 disableTextInHeader = false
 
-# defaultBackgroundImage = "IMAGE.jpg" # used as default for background images
-# defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
+defaultBackgroundImage = "img/background.jpeg" # used as default for background images
+defaultFeaturedImage = "img/background.jpeg" # used as default for featured images in all articles
 
-# highlightCurrentMenuArea = true
-# smartTOC = true
+highlightCurrentMenuArea = true
+smartTOC = true
 # smartTOCHideUnfocusedChildren = true
 
 [header]
-  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
 
 [footer]
   showMenu = true
@@ -36,62 +36,71 @@ disableTextInHeader = false
   showScrollToTop = true
 
 [homepage]
-  layout = "profile" # valid options: page, profile, hero, card, background, custom
+  layout = "background" # valid options: page, profile, hero, card, background, custom
   #homepageImage = "IMAGE.jpg" # used in: hero, and card
-  showRecent = false
-  showRecentItems = 5
-  showMoreLink = false
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
   showMoreLinkDest = "/posts"
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
-  layoutBackgroundBlur = false # only used when layout equals background
+  layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
   showDate = true
   showViews = false
-  showLikes = false
+  showLikes = true
   showDateOnlyInArticle = false
   showDateUpdated = false
   showAuthor = true
   # showAuthorBottom = false
-  showHero = false
-  # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showDraftLabel = true
-  showEdit = false
-  # editURL = "https://github.com/username/repo/"
+  showEdit = true
+  editURL = "https://github.com/Armoghan-Blogs/Armoghan-Blogs/"
   editAppendPath = true
   seriesOpened = false
-  showHeadingAnchors = true
+  showHeadingAnchors = false
   showPagination = true
   invertPagination = false
   showReadingTime = true
   showTableOfContents = false
-  # showRelatedContent = false
-  # relatedContentLimit = 3
+  showRelatedContent = true
+  relatedContentLimit = 3
   showTaxonomies = false
   showAuthorsBadges = false
   showWordCount = true
-  # sharingLinks = [ "linkedin", "twitter", "bluesky", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram"]
+  sharingLinks = [
+    "linkedin",
+    "twitter",
+    "reddit",
+    "pinterest",
+    "facebook",
+    "email",
+    "whatsapp",
+    "telegram"
+  ]
   showZenMode = false
   newsletter = false
 
 [list]
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = false
-  showSummary = false
+  showBreadcrumbs = true
+  showSummary = true
   showViews = false
   showLikes = false
-  showTableOfContents = false
-  showCards = false
+  showTableOfContents = true
+  showCards = true
   orderByWeight = false
   groupByYear = true
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
   constrainItemsWidth = false
 
@@ -100,23 +109,23 @@ disableTextInHeader = false
 
 [taxonomy]
   showTermCount = true
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-  showBreadcrumbs = false
-  showViews = false
-  showLikes = false
-  showTableOfContents = false
-  cardView = false
+  showHero = true
+  heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
+  showBreadcrumbs = true
+  showViews = true
+  showLikes = true
+  showTableOfContents = true
+  cardView = true
 
 [term]
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
   showBreadcrumbs = false
-  showViews = false
-  showLikes = false
+  showViews = true
+  showLikes = true
   showTableOfContents = true
-  groupByYear = false
-  cardView = false
+  groupByYear = true
+  cardView = true
   cardViewScreenWidth = false
 
 [firebase]
@@ -151,7 +160,7 @@ disableTextInHeader = false
   # yandex = ""
 
 [DecapCMS]
-  development = false
+  development = true
   branch = "main"
   media = "/static/img"
   public = "/img"
