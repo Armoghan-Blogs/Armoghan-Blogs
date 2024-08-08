@@ -320,3 +320,110 @@ collections:
               - { label: "Domain", name: "domain", widget: "string", required: false }
 
 
+       # config/_default/languages.en.toml
+      - file: "config/_default/languages.en.toml"
+        label: "Languages"
+        name: "Languages"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string", required: true, hint: "Sets the Title of the site" }
+          - { label: "Language Code", name: "languageCode", widget: "select", required: true,
+              options: [
+                  { label: "English", value: "en" },
+                  { label: "Arabic", value: "ar" },
+                  { label: "Bulgarian", value: "bg" },
+                  { label: "Bengali", value: "bn" },
+                  { label: "Catalan", value: "ca" },
+                  { label: "German", value: "de" },
+                  { label: "Spanish", value: "es" },
+                  { label: "Finnish", value: "fi" },
+                  { label: "French", value: "fr" },
+                  { label: "Hebrew", value: "he" },
+                  { label: "Croatian", value: "hr" },
+                  { label: "Hungarian", value: "hu" },
+                  { label: "Indonesian", value: "id" },
+                  { label: "Italian", value: "it" },
+                  { label: "Japanese", value: "ja" },
+                  { label: "Korean", value: "ko" },
+                  { label: "Polish", value: "pl" },
+                  { label: "Portuguese (Brazil)", value: "pt-BR" },
+                  { label: "Portuguese (Portugal)", value: "pt-PT" },
+                  { label: "Romanian", value: "ro" },
+                  { label: "Russian", value: "ru" },
+                  { label: "Turkish", value: "tr" },
+                  { label: "Vietnamese", value: "vi" },
+                  { label: "Chinese (Simplified)", value: "zh-CN" },
+                  { label: "Chinese (Traditional)", value: "zh-TW" }
+                ]}
+          - { label: "Language Name", name: "languageName", widget: "select", required: true, options: [ "English", "Arabic", "Bulgarian", "Bengali", "Catalan", "German", "Spanish", "Finnish", "French", "Hebrew", "Croatian", "Hungarian", "Indonesian", "Italian", "Japanese", "Korean", "Polish", "Portuguese (Brazil)", "Portuguese (Portugal)", "Romanian", "Russian", "Turkish", "Vietnamese", "Chinese (Simplified)", "Chinese (Traditional)" ]}
+          - { label: "Weight", name: "weight", widget: "number", required: true, default: 1, value_type: "int", min: 1, max: 25 }
+          - label: params
+            name: params
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Display Name", name: "displayName", widget: "string", required: true }
+              - { label: "isoCode", name: "isoCode", widget: "string", required: true }
+              - { label: "rtl", name: "rtl", widget: "boolean", required: false, default: false }
+              - { label: "dateFormat", name: "dateFormat", widget: "select", required: true, default: "January 02 2006", options: [ "January 02 2006", "02 January 2006", "2006 January 02", "02 January 2006" ]}
+              - { label: "Logo", name: "logo", widget: "image", choose_url: false, required: false }
+              - { label: "Secondary Logo", name: "secondaryLogo", widget: "image", choose_url: true, required: false }
+              - { label: "copyright", name: "copyright", widget: "string", required: false, default: "Copy, _right?_ :thinking_face:" }
+              - { label: "description", name: "description", widget: "text", required: true }
+          - label: author
+            name: author
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Name", name: "name", widget: "string", required: true }
+              - { label: "Image", name: "image", widget: "image", choose_url: true, required: false }
+              - { label: "headline", name: "headline", widget: "string", required: true }
+              - { label: "bio", name: "bio", widget: "text", required: false }
+          - label: links
+            name: links
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "email", name: "email", widget: "string", pattern: ['^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', "Must be a valid email address"], required: false }
+              - { label: "link", name: "link", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "amazon", name: "amazon", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "apple", name: "apple", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "blogger", name: "blogger", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: bluesky", name: "bluesky", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "codepen", name: "codepen", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "dev", name: "dev", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "discord", name: "discord", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "dribbble", name: "dribbble", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "facebook", name: "facebook", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "flickr", name: "flickr", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "foursquare", name: "foursquare", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "github", name: "github", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "gitlab", name: "gitlab", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "google", name: "google", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "hashnode", name: "hashnode", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "instagram", name: "instagram", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "keybase", name: "keybase", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "kickstarter", name: "kickstarter", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "lastfm", name: "lastfm", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "linkedin", name: "linkedin", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "mastodon", name: "mastodon", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "medium", name: "medium", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "microsoft", name: "microsoft", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "orcid", name: "orcid", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "patreon", name: "patreon", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "pinterest", name: "pinterest", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "reddit", name: "reddit", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "researchgate", name: "researchgate", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "slack", name: "slack", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "snapchat", name: "snapchat", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "soundcloud", name: "soundcloud", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "stack-overflow", name: "stack-overflow", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "steam", name: "steam", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "telegram", name: "telegram", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "tiktok", name: "tiktok", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "tumblr", name: "tumblr", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "twitch", name: "twitch", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "twitter", name: "twitter", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "x-twitter", name: "x-twitter", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "whatsapp", name: "whatsapp", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "youtube", name: "youtube", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
+              - { label: "ko-fi", name: "ko-fi", widget: "string", pattern: ['^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL"], required: false }
