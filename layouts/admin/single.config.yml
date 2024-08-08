@@ -38,3 +38,24 @@ logo_url: "{{ .Site.Params.DecapCMS.logo }}"
 show_preview_links: {{ .Site.Params.DecapCMS.preview }}
 # Disable search for faster rendering
 search: {{ .Site.Params.DecapCMS.search }}
+
+view_filters:
+  - label: 'Drafts'
+    field: draft
+    pattern: 'true'
+    description: 'Show only draft posts.'
+
+  - label: 'Published'
+    field: draft
+    pattern: 'false'
+    description: 'Show only published posts.'
+
+view_groups:
+  - label: 'Year'
+    field: date
+    pattern: '\d{4}'
+    description: 'Group posts by year based on the date field.'
+  - label: 'Month'
+    field: date
+    pattern: '\d{4}-\d{2}'
+    description: 'Group posts by month based on the date field.'
