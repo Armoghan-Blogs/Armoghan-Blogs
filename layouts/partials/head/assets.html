@@ -38,9 +38,13 @@
       {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint
       "sha512" }}
       <script defer type="text/javascript" id="script-bundle" src="{{ $bundleJS.RelPermalink }}"
-        integrity="{{ $bundleJS.Data.Integrity }}" data-copy="{{ i18n " code.copy" }}" data-copied="{{ i18n " code.copied"
-        }}"></script>
-      {{ end }}
+      integrity="{{ $bundleJS.Data.Integrity }}" data-copy="{{ i18n " code.copy" }}" data-copied="{{ i18n " code.copied"
+    }}"></script>
+    {{ end }}
+
+    {{ if not .Site.Params.disableImageZoom | default true }}
+      <script src="{{ "js/zoom.min.js" | relURL }}"></script>
+    {{ end }}
 
       <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3T9VZ3DM"></script>
