@@ -75,13 +75,13 @@ collections:
             name: DecapCMS
             widget: object
             fields:
-              - { label: "Development", name: "development", widget: "boolean", required: true , default: false}
-              - { label: "Branch", name: "branch", widget: "string", required: false , default: "main"}
-              - { label: "Media Folder", name: "media", widget: "string", required: true , default: "/static/images"}
-              - { label: "Public Folder", name: "public", widget: "string", required: true , default: "/images"}
-              - { label: "Publish Mode", name: "PublishMode", widget: "select", options: ["editorial_workflow", "default"], required: true, default: "default" }
-              - { label: "Custom Logo", name: "logo", widget: "string", required: false}
-              - { label: "Show Preview links", name: "preview", widget: "boolean", required: true , default: true}
-              - { label: "Enable Search", name: "search", widget: "boolean", required: true , default: true}
+              - { label: "Development", name: "development", widget: "boolean", required: true , default: false , hint: "Enable this only for development purposes. It should remain off in production." }
+              - { label: "Branch", name: "branch", widget: "string", required: false , default: "main", hint: "Specify the branch name for your Git repository where content is managed. Default is 'main'." }
+              - { label: "Media Folder", name: "media", widget: "string", required: true , default: "/static/images", hint: "Define the folder path where media files are stored. This path is relative to the root of your project."}
+              - { label: "Public Folder", name: "public", widget: "string", required: true , default: "/images", hint: "Specify the public URL path for accessing media files. This is relative to your site’s base URL."}
+              - { label: "Publish Mode", name: "PublishMode", widget: "select", options: ["editorial_workflow", "default"], required: true, default: "default", hint: "Choose the publishing mode for content. 'Editorial Workflow' requires content to be reviewed before publishing." }
+              - { label: "Custom Logo", name: "logo", widget: "string", required: false, hint: Set Custom Logo for DecapCMS Login Page}
+              - { label: "Show Preview links", name: "preview", widget: "boolean", required: true , default: true, hint: "Toggle this to enable or disable preview links in the CMS. Preview links help review changes before they go live." }
+              - { label: "Enable Search", name: "search", widget: "boolean", required: true , default: true, hint: "Enables Search functionality In DecapCMS UI. Disable if search is not needed." }
               - { label: "Enable Cheatsheets", name: "Cheatsheets", widget: "boolean", required: true , default: true}
               - { label: "Enable Tutorials", name: "Tutorials", widget: "boolean", required: true , default: true}
