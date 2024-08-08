@@ -4,6 +4,14 @@
   "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
   "main": ".commitlintrc.js",
   "scripts": {
+    "copy-decap-cms": "cp node_modules/decap-cms-app/dist/decap-cms-app.js assets/",
+    "copy-netlify-identity-widget": "cp node_modules/netlify-identity-widget/build/netlify-identity-widget.js assets/",
+    "copy-all": "npm run copy-decap-cms && npm run copy-netlify-identity-widget",
+    "preinstall": "npm run copy-all",
+    "prebuild": "npm run copy-all",
+    "predev": "npm run copy-all",
+    "preprod": "npm run copy-all",
+    "decap-dev": "npx decap-server",
     "dev": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch",
     "prod": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch -e production",
     "build": "hugo --gc --logLevel info --cleanDestinationDir --minify",
@@ -60,16 +68,18 @@
   "bugs": {
     "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
   },
-    "browserslist": [
+  "browserslist": [
     "last 1 version",
     ">= 1%",
     "not dead"
   ],
-    "engines": {
+  "engines": {
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "husky": "^9.1.4"
+    "decap-cms-app": "^3.2.1",
+    "husky": "^9.1.4",
+    "netlify-identity-widget": "^1.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
