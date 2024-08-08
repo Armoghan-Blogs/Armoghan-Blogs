@@ -1,0 +1,31 @@
+{{- $authors := slice -}}
+{{- $dataAuthors := .Site.Data.authors -}}
+
+{{- /* Check if the authors directory exists and has files */ -}}
+{{- with $dataAuthors -}}
+  {{- range $file, $author := . -}}
+    {{- $authors = $authors | append $author.name -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* If no authors found in data files, use .Site.Author.name as fallback */ -}}
+{{- if not (len $authors) -}}
+  {{- $authors = slice -}}
+{{- end -}}
+
+{{- /* Add .Site.Author.name to the authors list */ -}}
+{{- $authors = $authors | append .Site.Author.name -}}
+
+{{- /* Remove duplicate author names */ -}}
+{{- $uniqueAuthors := slice -}}
+{{- range $authors -}}
+  {{- if not (in $uniqueAuthors .) -}}
+    {{- $uniqueAuthors = $uniqueAuthors | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with $uniqueAuthors -}}
+  {{- range $index, $author := . -}}
+    {{- if $index }},{{ end }}"{{ $author }}"
+  {{- end -}}
+{{- end -}}

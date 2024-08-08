@@ -1,0 +1,16 @@
+{{- $tags := slice -}}
+{{- range .Site.Pages -}}
+  {{- $tags = union $tags .Params.tags -}}
+{{- end -}}
+
+{{- $uniqueTags := slice -}}
+{{- range $tags -}}
+  {{- $uniqueTags = cond (not (in $uniqueTags .)) (union $uniqueTags (slice .)) $uniqueTags -}}
+{{- end -}}
+
+{{- $tagList := "" -}}
+{{- range $index, $tag := $uniqueTags -}}
+  {{- if $index }}{{ $tagList = printf "%s, %s" $tagList $tag }}{{ else }}{{ $tagList = $tag }}{{ end -}}
+{{- end -}}
+
+{{- printf "Available tags: %s" $tagList -}}

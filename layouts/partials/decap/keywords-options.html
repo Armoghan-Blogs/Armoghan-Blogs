@@ -1,0 +1,16 @@
+{{- $keywords := slice -}}
+{{- range .Site.Pages -}}
+  {{- $keywords = union $keywords .Params.keywords -}}
+{{- end -}}
+
+{{- $uniqueKeywords := slice -}}
+{{- range $keywords -}}
+  {{- $uniqueKeywords = cond (not (in $uniqueKeywords .)) (union $uniqueKeywords (slice .)) $uniqueKeywords -}}
+{{- end -}}
+
+{{- $keywordList := "" -}}
+{{- range $index, $keyword := $uniqueKeywords -}}
+  {{- if $index }}{{ $keywordList = printf "%s, %s" $keywordList $keyword }}{{ else }}{{ $keywordList = $keyword }}{{ end -}}
+{{- end -}}
+
+{{- printf "Available keywords: %s" $keywordList -}}

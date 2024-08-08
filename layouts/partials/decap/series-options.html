@@ -1,0 +1,16 @@
+{{- $series := slice -}}
+{{- range .Site.Pages -}}
+  {{- $series = union $series .Params.series -}}
+{{- end -}}
+
+{{- $uniqueSeries := slice -}}
+{{- range $series -}}
+  {{- $uniqueSeries = cond (not (in $uniqueSeries .)) (union $uniqueSeries (slice .)) $uniqueSeries -}}
+{{- end -}}
+
+{{- $seriesList := "" -}}
+{{- range $index, $serie := $uniqueSeries -}}
+  {{- if $index }}{{ $seriesList = printf "%s, %s" $seriesList $serie }}{{ else }}{{ $seriesList = $serie }}{{ end -}}
+{{- end -}}
+
+{{- printf "Available series: %s" $seriesList -}}

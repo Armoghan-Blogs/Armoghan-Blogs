@@ -61,6 +61,44 @@ view_groups:
     description: 'Group posts by month based on the date field.'
 
 collections:
+
+  # All Posts
+  - label: "Posts"
+    name: "posts"
+    editor:
+      preview: true
+    folder: "content/posts"
+    create: true
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Date", name: "date", widget: "datetime", required: true }
+      - { label: "Featured Image", name: "image", widget: "image", choose_url: true }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Slug", name: "slug", widget: "string", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Show Summary", name: "showSummary", widget: "boolean", default: false, required: false }
+      - { label: "Show Table of Contents", name: "showTableOfContents", widget: "boolean", default: true, required: false }
+      - { label: "Show Word Count", name: "showWordCount", widget: "boolean", default: true, required: false }
+      - { label: "Show Comments", name: "showComments", widget: "boolean", default: false, required: false }
+      - { label: "Newsletter", name: "newsletter", widget: "boolean", default: false, required: false }
+      - { label: "Show Date", name: "showDate", widget: "boolean", default: true, required: true }
+      - { label: "Show Date Updated", name: "showDateUpdated", widget: "boolean", default: false, required: false }
+      - { label: "Show Heading Anchors", name: "showHeadingAnchors", widget: "boolean", default: true, required: false }
+      - { label: "Show Pagination", name: "showPagination", widget: "boolean", default: true, required: true }
+      - { label: "Show Reading Time", name: "showReadingTime", widget: "boolean", default: true, required: true }
+      - { label: "Show Taxonomies", name: "showTaxonomies", widget: "boolean", default: true, required: true }
+      - { label: "Tags", name: "tags", widget: "list", multiple: true, allow_add: true, hint: "{{ partial "decap/tags-options.html" . }}"}
+      - { label: "Categories", name: "categories",widget: "list", multiple: true, allow_add: true, hint: "{{ partial "decap/categories-options.html" . }}" }
+      - { label: "Keywords", name: "keywords", widget: "list", multiple: true, allow_add: true, hint: "{{ partial "decap/keywords-options.html" . }}" }
+      - { label: "Series", name: "series", widget: "list", multiple: true, allow_add: true, hint: "{{ partial "decap/series-options.html" . }}" }
+      - { label: "Series Order", name: "series_order", widget: "select", required: false, options: ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50"] }
+      - { label: "Author", name: "author", widget: "select", required: true , options: [{{ partial "decap/authors-options.html" . }}], default: "{{ .Site.Author.name }}" }
+      - { label: "Draft",name: "draft", widget: "boolean",default: false, required: true }
+      - { label: "Body", name: "body", widget: "markdown" }
+    meta: { path: { widget: string, label: "Path", index_file: "index" } }
+
   # Decap Cms Settings
   - label: "Decap Config"
     name: "Decap Config"

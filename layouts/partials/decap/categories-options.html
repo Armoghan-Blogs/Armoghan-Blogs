@@ -1,0 +1,16 @@
+{{- $categories := slice -}}
+{{- range .Site.Pages -}}
+  {{- $categories = union $categories .Params.categories -}}
+{{- end -}}
+
+{{- $uniqueCategories := slice -}}
+{{- range $categories -}}
+  {{- $uniqueCategories = cond (not (in $uniqueCategories .)) (union $uniqueCategories (slice .)) $uniqueCategories -}}
+{{- end -}}
+
+{{- $categoryList := "" -}}
+{{- range $index, $category := $uniqueCategories -}}
+  {{- if $index }}{{ $categoryList = printf "%s, %s" $categoryList $category }}{{ else }}{{ $categoryList = $category }}{{ end -}}
+{{- end -}}
+
+{{- printf "Available categories: %s" $categoryList -}}
