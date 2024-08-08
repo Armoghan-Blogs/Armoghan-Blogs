@@ -76,6 +76,7 @@ disableTextInHeader = false
   showWordCount = true
   # sharingLinks = [ "linkedin", "twitter", "bluesky", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram"]
   showZenMode = false
+  newsletter = false
 
 [list]
   showHero = false
@@ -148,3 +149,5 @@ disableTextInHeader = false
   # bing = ""
   # pinterest = ""
   # yandex = ""
+
+

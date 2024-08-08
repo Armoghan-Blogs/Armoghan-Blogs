@@ -1,6 +1,10 @@
+{{ if .Params.newsletter | default (.Site.Params.article.newsletter | default false) }}
 
 {{ partial "newsletter.html" . }}
 
+{{ end }}
+
+<br>
 
 <script src="https://utteranc.es/client.js"
         repo="Armoghan-Blogs/Armoghan-Blogs-Comments"
