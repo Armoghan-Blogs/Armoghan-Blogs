@@ -1,0 +1,40 @@
+{{ if .Site.Params.DecapCMS.development }}
+# Development mode configuration
+backend:
+  name: test-repo
+local_backend:
+  url: http://localhost:8081/api/v1
+  allowed_hosts:
+    - "127.0.0.1"
+{{ else }}
+# Production mode configuration
+backend:
+  name: git-gateway
+  branch: {{ .Site.Params.DecapCMS.branch }}
+  commit_messages:
+    create: Create {{ "{{collection}}" }}
+    update: Update {{ "{{collection}}" }}
+    delete: Delete {{ "{{collection}}" }}
+    uploadMedia: Upload “{{ "{{path}}" }}”
+    deleteMedia: Delete “{{ "{{path}}" }}”
+    openAuthoring: '{{ "{{message}}" }}'
+{{ end }}
+
+# Folder for storing media files
+media_folder: "{{ .Site.Params.DecapCMS.media }}"
+# Public URL path for accessing media files
+public_folder: "{{ .Site.Params.DecapCMS.public }}"
+# Publish mode for content (e.g., editorial workflow)
+publish_mode: {{ .Site.Params.DecapCMS.PublishMode }}
+# URL of the deployed site
+site_url: "{{ .Site.BaseURL }}"
+# Display URL for the site
+display_url: "{{ .Site.BaseURL }}"
+{{ if isset .Site.Params.DecapCMS "logo" }}
+# Custom Site Logo URL
+logo_url: "{{ .Site.Params.DecapCMS.logo }}"
+{{ end }}
+# Show preview links in the CMS
+show_preview_links: {{ .Site.Params.DecapCMS.preview }}
+# Disable search for faster rendering
+search: {{ .Site.Params.DecapCMS.search }}

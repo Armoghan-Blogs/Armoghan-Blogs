@@ -150,4 +150,14 @@ disableTextInHeader = false
   # pinterest = ""
   # yandex = ""
 
-
+[DecapCMS]
+  development = true
+  branch = "main"
+  media = "/static/img"
+  public = "/img"
+  PublishMode = "editorial_workflow"
+  # logo = ""
+  preview = true
+  search = false
+  Cheatsheets = true
+  Tutorials = true
