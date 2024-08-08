@@ -59,3 +59,29 @@ view_groups:
     field: date
     pattern: '\d{4}-\d{2}'
     description: 'Group posts by month based on the date field.'
+
+collections:
+  # Decap Cms Settings
+  - label: "Decap Config"
+    name: "Decap Config"
+    editor:
+      preview: false
+    files:
+      - label: "Parameters"
+        name: "params"
+        file: "config/_default/params.toml"
+        fields:
+          - label: Decap CMS
+            name: DecapCMS
+            widget: object
+            fields:
+              - { label: "Development", name: "development", widget: "boolean", required: true , default: false}
+              - { label: "Branch", name: "branch", widget: "string", required: false , default: "main"}
+              - { label: "Media Folder", name: "media", widget: "string", required: true , default: "/static/images"}
+              - { label: "Public Folder", name: "public", widget: "string", required: true , default: "/images"}
+              - { label: "Publish Mode", name: "PublishMode", widget: "select", options: ["editorial_workflow", "default"], required: true, default: "default" }
+              - { label: "Custom Logo", name: "logo", widget: "string", required: false}
+              - { label: "Show Preview links", name: "preview", widget: "boolean", required: true , default: true}
+              - { label: "Enable Search", name: "search", widget: "boolean", required: true , default: true}
+              - { label: "Enable Cheatsheets", name: "Cheatsheets", widget: "boolean", required: true , default: true}
+              - { label: "Enable Tutorials", name: "Tutorials", widget: "boolean", required: true , default: true}
