@@ -155,3 +155,168 @@ collections:
             fields:
               - { label: "threshold", name: "threshold", widget: "number", required: false, default: 0, value_type: "int", min: 0, max: 10, hint: "Set the similarity threshold for determining related content. A higher value means that only content with a high degree of similarity will be considered related." }
               - { label: "toLower", name: "toLower", widget: "boolean", required: false, default: false, hint: "Choose whether to convert text to lowercase before comparing for related content. This helps in making comparisons case-insensitive." }
+
+      # config/_default/params.toml
+      - file: "config/_default/params.toml"
+        label: "Parameters"
+        name: "Parameters"
+        fields:
+          - { label: "Color Scheme", name: "colorScheme", widget: "select", required: true, options: [ "blowfish", "terminal", "fire", "ocean", "slate", "autum", "neon", "avacado", "princess", "marvel", "forest", "noir", "congo", "blood" ], hint: "Select a color scheme that defines the visual style of your site." }
+          - { label: "Default Appearance", name: "defaultAppearance", widget: "select", options: ["light", "dark"], required: true, hint: "Choose between 'light' and 'dark' modes for the overall theme of your site." }
+          - { label: "Switch Appearance", name: "autoSwitchAppearance", widget: "boolean", required: false, default: true }
+          - { label: "Robots", name: "robots", widget: "string", required: false, hint: "Enter the robots.txt content to guide search engine crawlers on indexing your site." }
+          - { label: "Main Sections", name: "mainSections", widget: "select", options: [{{ partial "decap/sections-options.html" . }}], required: false, multiple: true, hint: "Select the main sections of your site. You can choose multiple sections to be featured or displayed." }
+          - { label: "Enable Search", name: "enableSearch", widget: "boolean", required: false, hint: "Toggle to enable or disable the search functionality on your site." }
+          - { label: "Enable Code Copy", name: "enableCodeCopy", widget: "boolean", required: false, hint: "Allow users to copy code snippets from your site with a button." }
+          - { label: "Disable Image Optimization", name: "disableImageOptimization", widget: "boolean", required: false, hint: "Turn off image optimization if you want to use original image quality without compression." }
+          - { label: "Disable Text In Header", name: "disableTextInHeader", widget: "boolean", required: false, hint: "Hide text elements in the header of your site if enabled." }
+          - { label: "Default Background Image", name: "defaultBackgroundImage", widget: "image", choose_url: true, required: false, hint: "Set a default background image for your site." }
+          - { label: "Default Featured Image", name: "defaultFeaturedImage", widget: "image", choose_url: true, required: false, hint: "Specify a default featured image for posts and pages." }
+          - { label: "Highlight Current Menu Area", name: "highlightCurrentMenuArea", widget: "boolean", required: false, hint: "Highlight the current menu area to help users identify their location on the site." }
+          - { label: "Smart Table of Content", name: "smartTOC", widget: "boolean", required: false, hint: "Enable a smart table of contents that adapts based on the content." }
+          - { label: "Smart TOC Hide Unfocused Children", name: "smartTOCHideUnfocusedChildren", widget: "boolean", required: false, hint: "Hide table of content items that are not focused or relevant to the current view." }
+          - label: header
+            name: header
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "layout", name: "layout", widget: "select", options: ["basic", "fixed", "fixed-fill", "fixed-fill-blur"], required: true }
+          - label: footer
+            name: footer
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Show Menu", name: "showMenu", widget: "boolean", required: true, default: true }
+              - { label: "Show Copyright", name: "showCopyright", widget: "boolean", required: true, default: true }
+              - { label: "Show Theme Attribution", name: "showThemeAttribution", widget: "boolean", required: true, default: true }
+              - { label: "Show Appearance Switcher", name: "showAppearanceSwitcher", widget: "boolean", required: true, default: true }
+              - { label: "Show Scroll To Top", name: "showScrollToTop", widget: "boolean", required: true, default: true }
+          - label: homepage
+            name: homepage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "layout", name: "layout", widget: "select", required: true, options: ["page", "profile", "hero", "card", "background", "custom"] }
+              - { label: "Homepage Image", name: "homepageImage", widget: "image", choose_url: true, required: false }
+              - { label: "Show Recent", name: "showRecent", widget: "boolean", required: true }
+              - { label: "Show Recent Items", name: "showRecentItems", widget: "select", required: false, default: "5", options: ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50"] }
+              - { label: "Show More Link", name: "showMoreLink", widget: "boolean", required: true }
+              - { label: "Show More Link Dest", name: "showMoreLinkDest", widget: "boolean", required: true }
+              - { label: "Card View", name: "cardView", widget: "boolean", required: true }
+              - { label: "Card View Screen Width", name: "cardViewScreenWidth", widget: "boolean", required: true }
+              - { label: "Layout Background Blur", name: "layoutBackgroundBlur", widget: "boolean", required: true }
+          - label: article
+            name: article
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Show Date", name: "showDate", widget: "boolean", required: true, default: true }
+              - { label: "Show Views", name: "showViews", widget: "boolean", required: true, default: true }
+              - { label: "Show Likes", name: "showLikes", widget: "boolean", required: true, default: true }
+              - { label: "Show Date Only In Article", name: "showDateOnlyInArticle", widget: "boolean", required: false, default: false }
+              - { label: "Show Date Updated", name: "showDateUpdated", widget: "boolean", required: false, default: false }
+              - { label: "Show Author", name: "showAuthor", widget: "boolean", required: true, default: true }
+              - { label: "Show Hero", name: "showHero", widget: "boolean", required: true, default: true }
+              - { label: "Hero Style", name: "heroStyle", widget: "select", options: ["basic", "big", "background", "thumbAndBackground"], required: true }
+              - { label: "Layout Background Blur", name: "layoutBackgroundBlur", widget: "boolean", required: true, default: true }
+              - { label: "Layout Background Header Space", name: "layoutBackgroundHeaderSpace", widget: "boolean", required: true, default: true }
+              - { label: "Show Breadcrumbs", name: "showBreadcrumbs", widget: "boolean", required: true, default: false }
+              - { label: "Show Draft Label", name: "showDraftLabel", widget: "boolean", required: true, default: false }
+              - { label: "Show Edit", name: "showEdit", widget: "boolean", required: true, default: false }
+              - { label: "Edit URL", name: "editURL", widget: "string", required: false }
+              - { label: "Edit Append Path", name: "editAppendPath", widget: "boolean", required: true, default: true }
+              - { label: "Series Opened", name: "seriesOpened", widget: "boolean", required: false, default: false }
+              - { label: "Show Heading Anchors", name: "showHeadingAnchors", widget: "boolean", required: false, default: false }
+              - { label: "Show Pagination", name: "showPagination", widget: "boolean", required: true, default: true }
+              - { label: "Invert Pagination", name: "invertPagination", widget: "boolean", required: true, default: false }
+              - { label: "Show Reading Time", name: "showReadingTime", widget: "boolean", required: true, default: true }
+              - { label: "Show Table Of Contents", name: "showTableOfContents", widget: "boolean", required: true, default: false }
+              - { label: "Show Related Content", name: "showRelatedContent", widget: "boolean", required: false, default: false }
+              - { label: "Related Content Limit", name: "relatedContentLimit", widget: "select", required: false, default: "3", options: ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50"] }
+              - { label: "Show Taxonomies", name: "showTaxonomies", widget: "boolean", required: true, default: true }
+              - { label: "Show Authors Badges", name: "showAuthorsBadges", widget: "boolean", required: true, default: true }
+              - { label: "Show Word Count", name: "showWordCount", widget: "boolean", required: true, default: true }
+              - { label: "Sharing Links", name: "sharingLinks", widget: "select", required: true, multiple: true, options: [ "linkedin", "twitter", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram", ]}
+              - { label: "Show Zen Mode", name: "showZenMode", widget: "boolean", required: true, default: false }
+          - label: list
+            name: list
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "showHero", name: "showHero", widget: "boolean", required: false, default: false }
+              - { label: "heroStyle", name: "heroStyle", widget: "select", options: ["basic", "big", "background", "thumbAndBackground"], required: true }
+              - { label: "Layout Background Blur", name: "layoutBackgroundBlur", widget: "boolean", required: true, default: true }
+              - { label: "Layout Background Header Space", name: "layoutBackgroundHeaderSpace", widget: "boolean", required: true, default: true }
+              - { label: "Show Breadcrumbs", name: "showBreadcrumbs", widget: "boolean", required: true, default: false }
+              - { label: "Show Summary", name: "showSummary", widget: "boolean", required: true, default: false }
+              - { label: "Show Views", name: "showViews", widget: "boolean", required: true, default: true }
+              - { label: "ShowL ikes", name: "showLikes", widget: "boolean", required: true, default: true }
+              - { label: "Show Table Of Contents", name: "showTableOfContents", widget: "boolean", required: true, default: false }
+              - { label: "Show Cards", name: "showCards", widget: "boolean", required: true, default: false }
+              - { label: "Group By Year", name: "groupByYear", widget: "boolean", required: true, default: false }
+              - { label: "Card View", name: "cardView", widget: "boolean", required: true, default: false }
+              - { label: "Card View Screen Width", name: "cardViewScreenWidth", widget: "boolean", required: true, default: false }
+              - { label: "Constrain Items Width", name: "constrainItemsWidth", widget: "boolean", required: true, default: false }
+          - label: sitemap
+            name: sitemap
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "excludedKinds", name: "excludedKinds", widget: "select", multiple: true, required: true, options: ["taxonomy", "term"] }
+          - label: taxonomy
+            name: taxonomy
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Show Term Count", name: "showTermCount", widget: "boolean", required: true, default: true }
+              - { label: "Show Hero", name: "showHero", widget: "boolean", required: true, default: true }
+              - { label: "Hero Style", name: "heroStyle", widget: "select", required: true, options: ["big", "background", "thumbAndBackground"] }
+              - { label: "Show Breadcrumbs", name: "showBreadcrumbs", widget: "boolean", required: true, default: false }
+              - { label: "Show Views", name: "showViews", widget: "boolean", required: true, default: false }
+              - { label: "ShowL ikes", name: "showLikes", widget: "boolean", required: true, default: false }
+              - { label: "Show Table Of Contents", name: "showTableOfContents", widget: "boolean", required: true, default: false }
+              - { label: "Show Cards", name: "showCards", widget: "boolean", required: true, default: false }
+          - label: term
+            name: term
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Show Hero", name: "showHero", widget: "boolean", required: true, default: true }
+              - { label: "Hero Style", name: "heroStyle", widget: "select", required: true, options: ["big", "background", "thumbAndBackground"] }
+              - { label: "Show Breadcrumbs", name: "showBreadcrumbs", widget: "boolean", required: true, default: false }
+              - { label: "Show Views", name: "showViews", widget: "boolean", required: true, default: false }
+              - { label: "ShowL ikes", name: "showLikes", widget: "boolean", required: true, default: false }
+              - { label: "Show Table Of Contents", name: "showTableOfContents", widget: "boolean", required: true, default: false }
+              - { label: "Group By Year", name: "groupByYear", widget: "boolean", required: true, default: false }
+              - { label: "Show Cards", name: "showCards", widget: "boolean", required: true, default: false }
+              - { label: "Card View Screen Width", name: "cardViewScreenWidth", widget: "boolean", required: true, default: false }
+          - label: firebase
+            name: firebase
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "API Key", name: "apiKey", widget: "string", required: false }
+              - { label: "Auth Domain", name: "authDomain", widget: "string", required: false }
+              - { label: "Project Id", name: "projectId", widget: "string", required: false }
+              - { label: "Storage Bucket", name: "storageBucket", widget: "string", required: false }
+              - { label: "Messaging Sender Id", name: "messagingSenderId", widget: "string", required: false }
+              - { label: "App Id", name: "appId", widget: "string", required: false }
+              - { label: "Measurement Id", name: "measurementId", widget: "string", required: false }
+          - label: verification
+            name: verification
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Google", name: "google", widget: "string", required: false }
+              - { label: "Bing", name: "bing", widget: "string", required: false }
+              - { label: "Pinterest", name: "pinterest", widget: "string", required: false }
+              - { label: "Yandex", name: "yandex", widget: "string", required: false }
+          - label: Fathom Analytics
+            name: fathomAnalytics
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Site", name: "site", widget: "string", required: false }
+              - { label: "Domain", name: "domain", widget: "string", required: false }
+
+

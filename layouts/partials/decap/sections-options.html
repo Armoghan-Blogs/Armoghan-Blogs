@@ -1,0 +1,10 @@
+{{- $sectionsList := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $sectionsList = union $sectionsList (slice .Section) -}}
+{{- end -}}
+
+{{- with $sectionsList -}}
+  {{- range $index, $section := . -}}
+    {{- if $index }},{{ end }}"{{ $section }}"
+  {{- end -}}
+{{- end -}}
