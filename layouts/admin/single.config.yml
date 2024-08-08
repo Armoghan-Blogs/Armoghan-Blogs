@@ -85,3 +85,73 @@ collections:
               - { label: "Enable Search", name: "search", widget: "boolean", required: true , default: true, hint: "Enables Search functionality In DecapCMS UI. Disable if search is not needed." }
               - { label: "Enable Cheatsheets", name: "Cheatsheets", widget: "boolean", required: true , default: true}
               - { label: "Enable Tutorials", name: "Tutorials", widget: "boolean", required: true , default: true}
+
+  # Config Files
+  - name: "Site Configuration"
+    label: "Site Configuration"
+    editor:
+      preview: false
+    files:
+      # config/_default/config.toml
+      - file: "config/_default/hugo.toml"
+        label: "Hugo Config"
+        name: "Hugo Config"
+        fields:
+          - { label: "Base URL", name: "baseURL", widget: "string", pattern: [ '^(https?|http):\/\/[^\s/$.?#].[^\s]*$', "Must be a valid URL" ], required: true, default: "{{ .Site.BaseURL }}" }
+          - { label: "Theme Name", name: "theme", widget: "string", required: true, default: "blowfish" }
+          - { label: "Pluralize List Titles", name: "pluralizeListTitles", widget: "boolean", required: false, default: true }
+          - { label: "Default Content Language", name: "defaultContentLanguage", widget: "select", required: true,
+              options: [
+                  { label: "English", value: "en" },
+                  { label: "Arabic", value: "ar" },
+                  { label: "Bulgarian", value: "bg" },
+                  { label: "Bengali", value: "bn" },
+                  { label: "Catalan", value: "ca" },
+                  { label: "German", value: "de" },
+                  { label: "Spanish", value: "es" },
+                  { label: "Finnish", value: "fi" },
+                  { label: "French", value: "fr" },
+                  { label: "Hebrew", value: "he" },
+                  { label: "Croatian", value: "hr" },
+                  { label: "Hungarian", value: "hu" },
+                  { label: "Indonesian", value: "id" },
+                  { label: "Italian", value: "it" },
+                  { label: "Japanese", value: "ja" },
+                  { label: "Korean", value: "ko" },
+                  { label: "Polish", value: "pl" },
+                  { label: "Portuguese (Brazil)", value: "pt-BR" },
+                  { label: "Portuguese (Portugal)", value: "pt-PT" },
+                  { label: "Romanian", value: "ro" },
+                  { label: "Russian", value: "ru" },
+                  { label: "Turkish", value: "tr" },
+                  { label: "Vietnamese", value: "vi" },
+                  { label: "Chinese (Simplified)", value: "zh-CN" },
+                  { label: "Chinese (Traditional)", value: "zh-TW" }
+                  ]
+            }
+          - { label: "Paginate", name: "paginate", widget: "number", required: true, default: 10, value_type: "int", min: 10, max: 50 }
+          - { label: "Summary Length", name: "summaryLength", widget: "number", required: true, default: 0, value_type: "int", min: 0, max: 50 }
+          - { label: "Enable Robots TXT", name: "enableRobotsTXT", widget: "boolean", default: true }
+          - { label: "Build Drafts", name: "buildDrafts", widget: "boolean", required: false, default: false,  hint: "Enable this to include draft content in the build process. Typically used for previewing drafts before publishing." }
+          - { label: "Build Expired", name: "buildExpired", widget: "boolean", required: false, default: false, hint: "Toggle this to include expired content in the build process. Useful for preserving content that is no longer current." }
+          - { label: "Build Future", name: "buildFuture", widget: "boolean", required: false, default: false, hint: "Enable this to include future-dated content in the build. This is useful for previewing content scheduled to be published later." }
+          - { label: "Enable Emoji", name: "enableEmoji", widget: "boolean", required: false, default: false}
+          - { label: "Google Analytics", name: "googleAnalytics", widget: "string", required: false, default: "{{ if .Site.Params.verification.google }}{{ . }}{{ end }}" }
+          - label: imaging
+            name: imaging
+            widget: object
+            fields:
+              - { label: "Anchor", name: "anchor", widget: "string" }
+          - label: sitemap
+            name: sitemap
+            widget: object
+            fields:
+              - { label: "changefreq", name: "changefreq", widget: "select", options: [ "always", "hourly", "daily", "weekly", "monthly", "yearly", "never"], required: false, hint: "Specify how frequently the content at the URL is expected to change. This helps search engines decide how often to crawl the page." }
+              - { label: "filename", name: "filename", widget: "string", required: false, hint: "Provide the filename for your sitemap. The default is usually 'sitemap.xml'." }
+              - { label: "priority", name: "priority", widget: "number", required: false, default: 0.5, value_type: "int", min: 0.0, max: 100, hint: "Set the priority of the URL relative to other URLs on your site. Values range from 0.0 to 1.0, with 1.0 being the highest priority." }
+          - label: related
+            name: related
+            widget: object
+            fields:
+              - { label: "threshold", name: "threshold", widget: "number", required: false, default: 0, value_type: "int", min: 0, max: 10, hint: "Set the similarity threshold for determining related content. A higher value means that only content with a high degree of similarity will be considered related." }
+              - { label: "toLower", name: "toLower", widget: "boolean", required: false, default: false, hint: "Choose whether to convert text to lowercase before comparing for related content. This helps in making comparisons case-insensitive." }
