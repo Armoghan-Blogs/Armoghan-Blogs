@@ -160,7 +160,7 @@ smartTOC = true
   # yandex = ""
 
 [DecapCMS]
-  development = true
+  development = false
   branch = "main"
   media = "/static/img"
   public = "/img"
