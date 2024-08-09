@@ -143,8 +143,8 @@ smartTOC = true
 
 [umamiAnalytics]
   websiteid = "7f2544ea-7e7d-4c94-b082-75f4ebb5866f"
-  domain = "https://armoghan-blogs.netlify.app/"
-  dataDomains = "https://armoghan-blogs.netlify.app/ , https://armoghan.netlify.app/"
+  domain = "https://cloud.umami.is"
+  dataDomains = "https://armoghan-blogs.netlify.app/"
 
 [buymeacoffee]
   # identifier = ""
