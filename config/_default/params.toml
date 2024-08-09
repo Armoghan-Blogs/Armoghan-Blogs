@@ -143,7 +143,7 @@ smartTOC = true
 
 [umamiAnalytics]
   websiteid = "7f2544ea-7e7d-4c94-b082-75f4ebb5866f"
-  domain = "https://cloud.umami.is"
+  # domain = "cloud.umami.is"
   dataDomains = "https://armoghan-blogs.netlify.app/"
 
 [buymeacoffee]
@@ -155,7 +155,7 @@ smartTOC = true
 
 [verification]
   google = "x4mfCN8tLPQvaLugBp5JuK6IDtnyt6U7iVgB7nEZv3M"
-  bing = "https://armoghan-blogs.netlify.app/"
+  bing = "F5E6FE13E3FE3C1DE25A0E210CE9A9C7"
   # pinterest = ""
   # yandex = ""
 
