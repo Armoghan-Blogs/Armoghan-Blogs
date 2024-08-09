@@ -41,7 +41,7 @@
     {{- end }}
 
     <!-- Include additional CMS script -->
-    {{- with resources.Get "cms.js" }}
+    {{- with resources.Get "editorComponents.js" }}
       <!-- If in development environment, include the non-minified version -->
       {{- if eq hugo.Environment "development" }}
         {{- with . | js.Build }}
