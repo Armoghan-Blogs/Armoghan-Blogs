@@ -129,13 +129,13 @@ smartTOC = true
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyDzlwAfHQ6xPZX-JzBKHLViJxmvhubbio4"
+  authDomain = "armoghan-blogs-views-and-likes.firebaseapp.com"
+  projectId = "armoghan-blogs-views-and-likes"
+  storageBucket = "armoghan-blogs-views-and-likes.appspot.com"
+  messagingSenderId = "234121196303"
+  appId = "1:234121196303:web:6b7f5c959ee58a1f46c47a"
+  measurementId = "G-LHJ14G3CNT"
 
 [fathomAnalytics]
   # site = "ABC12345"
