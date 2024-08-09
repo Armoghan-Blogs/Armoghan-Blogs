@@ -20,12 +20,12 @@ weight = 40
 
 [[main]]
 name = "Author"
-url = ""
+url = "https://armoghan.netlify.app"
 weight = 50
 
 [[main]]
 name = "Contact"
-url = ""
+url = "https://armoghan.netlify.app/"
 weight = 60
 
 # -- Footer Menu --
@@ -51,7 +51,7 @@ name = "Keywords"
 url = "/keywords"
 weight = 40
 
-[[footer]]
-name = "Newsletter"
-url = ""
-weight = 50
+# [[footer]]
+# name = "Newsletter"
+# url = ""
+# weight = 50
