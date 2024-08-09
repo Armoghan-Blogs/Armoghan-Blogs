@@ -13,3 +13,4 @@ import './widgets/icon';
 import './widgets/katex';
 import './widgets/keywords';
 import './widgets/lead';
+import './widgets/list';
