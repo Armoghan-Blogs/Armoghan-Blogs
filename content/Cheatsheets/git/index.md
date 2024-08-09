@@ -21,14 +21,14 @@ showTaxonomies: true
 tags:
   - '"Git"'
 categories:
-  - CheatSheet
+  - '"CheatSheet"'
 keywords:
   - '"Git"'
   - '"CheatSheet"'
   - '"Version Control"'
   - '"Git Commands"'
 series:
-  - Git
+  - '"Git"'
 series_order: "3"
 author: Armoghan-ul-Mohmin
 draft: false
