@@ -19,3 +19,4 @@ import './widgets/mdimport';
 import './widgets/mermaid';
 import './widgets/swatches';
 import './widgets/timeline';
+import './widgets/typeit';
