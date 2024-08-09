@@ -12,3 +12,4 @@ import './widgets/gitlab';
 import './widgets/icon';
 import './widgets/katex';
 import './widgets/keywords';
+import './widgets/lead';
