@@ -9,3 +9,4 @@ import './widgets/figure';
 import './widgets/gallery';
 import './widgets/github.js';
 import './widgets/gitlab';
+import './widgets/icon';
