@@ -1,0 +1,18 @@
+/* CSS for the dropdown list */
+.css-mj84iz-DropdownList-dropdownList-DropdownList {
+  max-height: 280px !important; /* Limit the height of the dropdown list */
+  overflow-y: auto !important; /* Enable vertical scrolling when the content overflows */
+  padding: 5px; /* Padding inside the dropdown */
+}
+
+/* Ensure dropdown list items are displayed correctly */
+.css-mj84iz-DropdownList-dropdownList-DropdownList .dropdown-item {
+  padding: 10px; /* Padding inside each item */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+@media (max-width: 480px) {
+  .css-mj84iz-DropdownList-dropdownList-DropdownList {
+    max-height: 200px; /* Reduce height on very small screens */
+  }
+}

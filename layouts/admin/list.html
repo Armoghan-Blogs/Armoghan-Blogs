@@ -21,6 +21,22 @@
         {{- end }}
       {{- end }}
     {{- end }}
+
+    <!-- Include Custom CSS -->
+{{ with resources.Get "decap.css" }}
+<!-- Check if the style.scss resource exists -->
+{{- if eq hugo.Environment "development" }}
+<!-- In development environment, use the plain CSS without minification or fingerprinting -->
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- else }}
+<!-- In production environment -->
+{{ with . | minify | fingerprint }}
+<!-- Minify the CSS, generate fingerprint, and include the link tag with integrity attribute -->
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- end }}
+{{- end }}
+{{- end }}
+
   </head>
 
   <body>
