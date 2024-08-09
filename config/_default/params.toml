@@ -154,8 +154,8 @@ smartTOC = true
   # globalWidgetPosition = "Right"
 
 [verification]
-  # google = ""
-  # bing = ""
+  google = "x4mfCN8tLPQvaLugBp5JuK6IDtnyt6U7iVgB7nEZv3M"
+  bing = "https://armoghan-blogs.netlify.app/"
   # pinterest = ""
   # yandex = ""
 
