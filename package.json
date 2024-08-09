@@ -4,7 +4,7 @@
   "description": "My Personal Blogs Website built using Hugo and Decap-CMS",
   "main": ".commitlintrc.js",
   "scripts": {
-    "copy-decap-cms": "cp node_modules/decap-cms-app/dist/decap-cms-app.js assets/",
+    "copy-decap-cms": "cp node_modules/decap-cms/dist/decap-cms.js assets/",
     "copy-netlify-identity-widget": "cp node_modules/netlify-identity-widget/build/netlify-identity-widget.js assets/",
     "copy-all": "npm run copy-decap-cms && npm run copy-netlify-identity-widget",
     "preinstall": "npm run copy-all",
@@ -77,7 +77,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "decap-cms-app": "^3.2.1",
+    "decap-cms": "^3.2.1",
     "husky": "^9.1.4",
     "netlify-identity-widget": "^1.9.2"
   },
