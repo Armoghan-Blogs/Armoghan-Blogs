@@ -11,3 +11,4 @@ import './widgets/github.js';
 import './widgets/gitlab';
 import './widgets/icon';
 import './widgets/katex';
+import './widgets/keywords';
