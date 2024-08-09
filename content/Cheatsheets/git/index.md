@@ -19,16 +19,16 @@ showPagination: true
 showReadingTime: true
 showTaxonomies: true
 tags:
-  - '"Git"'
+  - Git
 categories:
-  - '"CheatSheet"'
+  - CheatSheet
 keywords:
-  - '"Git"'
-  - '"CheatSheet"'
-  - '"Version Control"'
-  - '"Git Commands"'
+  - Git
+  - CheatSheet
+  - Version Control
+  - Git Commands
 series:
-  - '"Git"'
+  - Git
 series_order: "3"
 author: Armoghan-ul-Mohmin
 draft: false
