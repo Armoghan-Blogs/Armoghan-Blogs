@@ -16,3 +16,4 @@ import './widgets/lead';
 import './widgets/list';
 import './widgets/rtl';
 import './widgets/mdimport';
+import './widgets/mermaid';
