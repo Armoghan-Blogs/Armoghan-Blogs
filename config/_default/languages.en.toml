@@ -1,0 +1,37 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Armoghan Blogs"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+logo = "img/Armoghan.png"
+secondaryLogo = "img/Armoghan.png"
+description = "My Personal Blogs Website"
+
+[author]
+name = "Armoghan-ul-Mohmin"
+image = "img/blowfish_logo.png"
+headline = "I'm Digital Forensic and Cyber Secutity Student"
+# bio = "A little bit about you"
+links = [
+  { email = "mailto:armoghan@proton.me" },
+  # { discord = "https://discord.gg/invitecode" },
+  { facebook = "https://www.facebook.com/armoghanul.mohmin" },
+  { github = "https://github.com/Armoghan-ul-Mohmin" },
+  # { gitlab = "https://gitlab.com/username" },
+  { instagram = "https://www.instagram.com/___armoghan/" },
+  { linkedin = "http://www.linkedin.com/in/armoghan-ul-mohmin-4289a9248" },
+  # { patreon = "https://www.patreon.com/username" },
+  # { pinterest = "https://pinterest.com/username" },
+  # { reddit = "https://reddit.com/user/username" },
+  # { snapchat = "https://snapchat.com/add/username" },
+  # { soundcloud = "https://soundcloud.com/username" },
+  # { stack-overflow = "https://stackoverflow.com/users/userid/username" },
+  # { telegram = "https://t.me/username" },
+  { twitter = "https://twitter.com/Armoghan12" },
+  { whatsapp = "https://wa.me/+923328695097" },
+]
