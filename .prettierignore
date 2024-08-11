@@ -17,8 +17,7 @@ package-lock.json
 .gitignore
 .prettierrc.js
 .prettierignore
-.eslintrc.js
-.eslintignore
+eslint.config.cjs
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 SECURITY.md

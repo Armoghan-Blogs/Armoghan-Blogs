@@ -6,7 +6,9 @@
   "private": "true",
   "scripts": {
     "prettier": "prettier --check --ignore-unknown .",
-    "prettier:fix": "prettier --write --ignore-unknown ."
+    "prettier:fix": "prettier --write --ignore-unknown .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "Hugo",
@@ -39,6 +41,8 @@
     "not dead"
   ],
   "devDependencies": {
+    "eslint": "^9.9.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
     "prettier-plugin-go-template": "^0.0.15",
     "prettier-plugin-toml": "^2.0.1"
