@@ -63,7 +63,16 @@
         "**/.husky": true,
         "**/package-lock.json": true,
         "**/.hugo_build.lock": true,
-        "**/.gitignore": true
+        "**/.gitignore": true,
+        "**/.prettierrc.js": true,
+        "**/commitlint.config.js": true,
+        "**/.prettierignore": true,
+        "**/eslint.config.cjs": true,
+        "**/LICENSE": true,
+        "**/SECURITY.md": true,
+        "**/CONTRIBUTING.md": true,
+        "**/CODE_OF_CONDUCT.md": true,
+
     },
     // * Exclude files from search results
     "search.exclude": {
