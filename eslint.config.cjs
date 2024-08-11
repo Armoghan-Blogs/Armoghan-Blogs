@@ -10,6 +10,7 @@ module.exports = [
       '**/.husky/**',
       '**/resources/**',
       '**/themes/**',
+      '**/public/**',
       '**/static/**',
       '**/package.json',
       '**/package-lock.json',
