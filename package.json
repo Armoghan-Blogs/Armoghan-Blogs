@@ -1,0 +1,40 @@
+{
+  "name": "armoghan-blogs",
+  "version": "1.0.0",
+  "description": "Personal blog built with Hugo and Decap-CMS using the Blowfish theme.",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Hugo",
+    "Blowfish Theme",
+    "Armoghan Blogs",
+    "Decap CMS",
+    "Personal Blog",
+    "Web Development",
+    "Static Site Generator",
+    "CMS",
+    "Tailwind CSS"
+  ],
+  "author": "Armoghan-ul-Mohmin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armoghan-Blogs/Armoghan-Blogs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
+  },
+  "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme",
+  "engines": {
+    "node": ">=22.6.0",
+    "npm": ">=10.8.2"
+  },
+  "browserslist": [
+    "last 1 version",
+    ">= 1%",
+    "not dead"
+  ]
+}
