@@ -1,0 +1,89 @@
+//   **************************************
+//   * VS Code Settings Configuration     *
+//   * Project: Armoghan Blogs            *
+//   * Description: This configuration    *
+//   * file contains settings to optimize *
+//   * the development environment for    *
+//   * working on Hugo websites. It       *
+//   * includes settings for auto-saving, *
+//   * code formatting, editor behavior,  *
+//   * and file exclusions.               *
+//   **************************************
+
+{
+    // * Auto-save configuration
+    "files.autoSave": "onWindowChange",
+    // * Prettier as the default formatter
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // * Editor minimap visibility
+    "editor.minimap.enabled": false,
+    // * Render whitespace characters
+    "editor.renderWhitespace": "all",
+    // * Word wrap setting
+    "editor.wordWrap": "on",
+    // * Smooth cursor blinking
+    "editor.cursorBlinking": "smooth",
+    // * Auto-save delay
+    "files.autoSaveDelay": 1000,
+    // * Tab size configuration
+    "editor.tabSize": 2,
+    // * Tab completion setting
+    "editor.tabCompletion": "on",
+    // * Suggestion insert mode
+    "editor.suggest.insertMode": "replace",
+    // * Show snippets in suggestions
+    "editor.suggest.showSnippets": true,
+    // * Prevent snippets from blocking quick suggestions
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    // * Trigger suggestions on specific characters
+    "editor.suggestOnTriggerCharacters": true,
+    // * Color theme setting
+    "workbench.colorTheme": "Shades of Purple",
+    // * Integrated terminal scrollback
+    "terminal.integrated.scrollback": 10000,
+    // * Terminal explorer kind
+    "terminal.explorerKind": "both",
+    // * Bracket pair colorization
+    "editor.bracketPairColorization.enabled": true,
+    // * Inline error lens
+    "errorLens.enabled": true,
+    // * Quick suggestions settings
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    // * Exclude files from the workspace
+    "files.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.github": true,
+        "**/.devcontainer": true,
+        "**/.husky": true,
+        "**/package-lock.json": true,
+        "**/.hugo_build.lock": true,
+        "**/.gitignore": true
+    },
+    // * Exclude files from search results
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.github": true,
+        "**/.devcontainer": true,
+        "**/.husky": true
+    },
+    // * Exclude files from the file watcher
+    "files.watcherExclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.github": true,
+        "**/.devcontainer": true,
+        "**/.husky": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}
