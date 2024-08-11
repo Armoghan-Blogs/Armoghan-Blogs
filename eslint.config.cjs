@@ -15,6 +15,7 @@ module.exports = [
       '**/package-lock.json',
       '**/.prettierrc.js',
       '**/.eslintignore',
+      "**/commitlint.config.js"
     ]
   },
   {
