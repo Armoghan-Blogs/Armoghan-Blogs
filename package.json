@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier --check --ignore-unknown .",
+    "prettier:fix": "prettier --write --ignore-unknown ."
   },
   "keywords": [
     "Hugo",
@@ -36,5 +37,10 @@
     "last 1 version",
     ">= 1%",
     "not dead"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-toml": "^2.0.1"
+  }
 }
