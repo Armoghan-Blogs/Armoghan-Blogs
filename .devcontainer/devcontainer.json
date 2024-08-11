@@ -1,0 +1,114 @@
+// **************************************
+// * Dev Container Configuration        *
+// * Project: Armoghan Blogs            *
+// * Description: This configuration    *
+// * sets up a tailored development     *
+// * environment for Hugo websites      *
+// * with essential tools and VS Code   *
+// * extensions.                        *
+// **************************************
+{
+    // * Name of the development container
+    "name": "Armoghan Blogs",
+    
+    // * Base image for the development container
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    
+    // * Features to add to the dev container
+    "features": {
+        // ** Git Feature
+        "ghcr.io/devcontainers/features/git:1": {
+            "ppa": true,
+            "version": "latest"
+        },
+        // ** Hugo Feature
+        "ghcr.io/devcontainers/features/hugo:1": {
+            "extended": true,
+            "version": "latest"
+        },
+        // ** Go Feature
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "latest"
+        },
+        // ** Node.js Feature
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "latest"
+        }
+    },
+    
+    // * Custom VS Code extensions
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // * Icon themes
+                "tal7aouy.icons",
+
+                // * Themes
+                "ahmadawais.shades-of-purple",
+
+                // * Linting and formatting
+                "dbaeumer.vscode-eslint", // ! ESLint for JavaScript
+                "esbenp.prettier-vscode", // ! Prettier code formatter
+
+                // * Hugo support
+                "budparr.language-hugo-vscode", // ! Syntax highlighting for Hugo
+                "rusnasonov.vscode-hugo", // ! Hugo language support
+                "fivethree.vscode-hugo-snippets", // ! Snippets for Hugo
+                "kaellarkin.hugo-shortcode-syntax", // ! Syntax highlighting for Hugo shortcodes
+                "eliostruyf.vscode-front-matter", // ! Front Matter CMS extension
+                "eliostruyf.vscode-hugo-themer", // ! Hugo themer for VSCode
+                
+                // * Go language support
+                "golang.Go", // ! Go language support
+                
+                // * AI-assisted coding
+                "TabNine.tabnine-vscode", // ! TabNine AI code completion
+                
+                // * Code readability and comments
+                "aaron-bond.better-comments", // ! Improved comments with color coding
+                
+                // * YAML and TOML support
+                "redhat.vscode-yaml", // ! YAML support with linting and autocompletion
+                "be5invis.toml", // ! TOML language support for configuration files
+                
+                // * UI enhancements
+                "CoenraadS.bracket-pair-colorizer-2", // ! Bracket pair colorizer for better readability
+                "streetsidesoftware.code-spell-checker", // ! Spell checker for catching typos
+                "formulahendry.auto-rename-tag", // ! Auto rename paired HTML/XML tags
+                "visualstudioexptteam.vscodeintellicode", // ! IntelliCode for AI-assisted recommendations
+                "naumovs.color-highlight", // ! Highlights colors in code
+                
+                // * Markdown support
+                "yzhang.markdown-all-in-one", // ! All-in-one Markdown support for editing and previewing
+                "shd101wyy.markdown-preview-enhanced", // ! Enhanced Markdown preview with extended features
+                
+                // * Debugging
+                "ms-vscode.node-debug2", // ! Node.js debugging support
+                
+                // * NPM support
+                "christian-kohler.npm-intellisense", // ! NPM package IntelliSense for easier imports
+
+                // * JavaScript support
+                "xabikos.JavaScriptSnippets", // ! JavaScript ES6 code snippets for faster development
+
+                // * Path navigation
+                "christian-kohler.path-intellisense", // ! Autocomplete for file paths in the project
+
+                // * Task management
+                "Gruntfuggly.todo-tree", // ! Track TODO comments across the project
+
+                // * Error visualization
+                "usernamehw.errorlens" // ! Inline display of errors and warnings in the code
+            ]
+        }
+    },
+    
+    // * Ports to forward from the container to the host
+    "forwardPorts": [
+        1313, // * Default port for the Hugo development server
+        8081  // * Additional port, typically used for the Decap CMS proxy server
+    ],
+    
+    // * User settings for the container
+    "remoteUser": "root"
+}
