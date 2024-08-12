@@ -1,0 +1,71 @@
+<head>
+  <!-- Character encoding for the webpage -->
+  <meta charset="utf-8" />
+
+  <!-- Viewport settings for responsive design on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Compatibility settings for Internet Explorer -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Tile Color for Windows browsers -->
+  <meta name="msapplication-TileColor" content="#141414" />
+
+  <!-- Site Verification Meta Tags -->
+
+  {{/* Google Site Verification */}}
+  {{ with .Site.Params.verification.google }}
+    <meta name="google-site-verification" content="{{ . }}" />
+  {{ end }}
+
+  {{/* Bing Site Verification */}}
+  {{ with .Site.Params.verification.bing }}
+    <meta name="msvalidate.01" content="{{ . }}" />
+  {{ end }}
+
+  {{/* Pinterest Site Verification */}}
+  {{ with .Site.Params.verification.pinterest }}
+    <meta name="p:domain_verify" content="{{ . }}" />
+  {{ end }}
+
+  {{/* Yandex Site Verification */}}
+  {{ with .Site.Params.verification.yandex }}
+    <meta name="yandex-verification" content="{{ . }}" />
+  {{ end }}
+
+  {{/* Open Graph Protocol Meta Tags for Facebook and other social platforms */}}
+  {{ template "_internal/opengraph.html" . }}
+
+  {{/* Twitter Cards Meta Tags for Twitter */}}
+  {{ template "_internal/twitter_cards.html" . }}
+
+
+  <!-- ======================================================================== -->
+  <!-- =============================== Asset ================================ -->
+  <!-- ========================================================================-->
+  {{- partialCached "head/assets.html" . -}}
+
+
+  <!-- Firebase -->
+  {{/* {{- partial "meta/firebase.html" . -}} */}}
+
+  <!-- Vendor-specific Assets -->
+  {{/* Include vendor-specific CSS or JavaScript files */}}
+  {{ partial "vendor.html" . }}
+
+
+  <!-- Analytics Scripts -->
+  {{ partial "analytics/main.html" .Site }}
+
+
+  <!-- Extend Head -->
+  {{ if templates.Exists "partials/extend-head.html" }}
+    {{ partialCached "extend-head.html" .Site }}
+  {{ end }}
+
+
+  <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
+</head>

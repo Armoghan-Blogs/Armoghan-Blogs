@@ -1,0 +1,116 @@
+{{/* Asset bundles */}}
+
+{{/* Initialize a new scratch instance for handling asset bundles */}}
+{{ $assets := newScratch }}
+
+{{/* Load the color scheme CSS based on the site's color scheme parameter */}}
+{{ $cssScheme := resources.Get (printf "css/schemes/%s.css" (.Site.Params.colorScheme | default "blowfish")) }}
+{{/* If the color scheme CSS is not found, fall back to the default scheme */}}
+{{ if not $cssScheme }}
+  {{ $cssScheme = resources.Get "css/schemes/blowfish.css" }}
+{{ end }}
+
+{{/* Add the color scheme CSS to the assets collection */}}
+{{ $assets.Add "css" (slice $cssScheme) }}
+
+{{/* Load and add the main CSS file to the assets collection */}}
+{{ $cssMain := resources.Get "css/compiled/main.css" }}
+{{ $assets.Add "css" (slice $cssMain) }}
+
+{{/* Load and add a custom CSS file if it exists */}}
+{{ $cssCustom := resources.Get "css/custom.css" }}
+{{ if $cssCustom }}
+  {{ $assets.Add "css" (slice $cssCustom) }}
+{{ end }}
+
+{{/* Concatenate, minify, and fingerprint the CSS files to create a bundle */}}
+{{ $bundleCSS := $assets.Get "css" | resources.Concat "css/main.bundle.css" | resources.Minify | resources.Fingerprint "sha512" }}
+
+{{/* Include the bundled CSS file in the page */}}
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="{{ $bundleCSS.RelPermalink }}"
+  integrity="{{ $bundleCSS.Data.Integrity }}"
+/>
+
+{{/* Load and minify the appearance JavaScript file, then fingerprint it */}}
+{{ $jsAppearance := resources.Get "js/appearance.js" }}
+{{ $jsAppearance = $jsAppearance | resources.ExecuteAsTemplate "js/appearance.js" . | resources.Minify | resources.Fingerprint "sha512" }}
+
+{{/* Include the appearance JavaScript file in the page */}}
+<script
+  type="text/javascript"
+  src="{{ $jsAppearance.RelPermalink }}"
+  integrity="{{ $jsAppearance.Data.Integrity }}"
+></script>
+
+{{/* Conditionally include search JavaScript files if search is enabled */}}
+{{ if .Site.Params.enableSearch | default false }}
+  {{ $jsFuse := resources.Get "lib/fuse/fuse.min.js" }}
+  {{ $jsSearch := resources.Get "js/search.js" }}
+  {{ $assets.Add "js" (slice $jsFuse $jsSearch) }}
+{{ end }}
+
+{{/* Conditionally include code copy JavaScript file if code copy is enabled */}}
+{{ if .Site.Params.enableCodeCopy | default false }}
+  {{ $jsCode := resources.Get "js/code.js" }}
+  {{ $assets.Add "js" (slice $jsCode) }}
+{{ end }}
+
+{{/* Conditionally include RTL JavaScript file if RTL mode is enabled */}}
+{{ if .Site.Params.rtl | default false }}
+  {{ $jsRTL := resources.Get "js/rtl.js" }}
+  {{ $assets.Add "js" (slice $jsRTL) }}
+{{ end }}
+
+{{/* Concatenate, minify, and fingerprint the JavaScript files to create a bundle */}}
+{{ if $assets.Get "js" }}
+  {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+  {{/* Include the bundled JavaScript file in the page */}}
+  <script
+    defer
+    type="text/javascript"
+    id="script-bundle"
+    src="{{ $bundleJS.RelPermalink }}"
+    integrity="{{ $bundleJS.Data.Integrity }}"
+    data-copy="{{ i18n " code.copy" }}"
+    data-copied="{{ i18n " code.copied" }}"
+  ></script>
+{{ end }}
+
+{{/* Conditionally include the image zoom JavaScript library if image zoom is enabled */}}
+{{ if not .Site.Params.disableImageZoom | default true }}
+  {{- with resources.Get "/lib/zoom/zoom.min.js" }}
+    {{- if eq hugo.Environment "development" }}
+      {{- with . | js.Build }}
+        <script src="{{ .RelPermalink }}"></script>
+      {{- end }}
+    {{- else }}
+      {{- $opts := dict "minify" true }}
+      {{- with . | js.Build $opts | fingerprint }}
+        <script
+          src="{{ .RelPermalink }}"
+          integrity="{{- .Data.Integrity }}"
+          crossorigin="anonymous"
+        ></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{ end }}
+
+
+<!-- Google Analytics Tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-EH3T9VZ3DM"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-EH3T9VZ3DM");
+</script>
