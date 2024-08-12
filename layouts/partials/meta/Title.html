@@ -1,0 +1,31 @@
+<!-- Meta tags and title element for specifying the title of the page -->
+
+{{ if .IsHome -}}
+  <!-- Home page specific title and meta tags -->
+  <title>{{ .Site.Title | emojify }}</title>
+  <meta name="title" content="{{ .Site.Title | emojify }}" />
+{{ else -}}
+  <!-- Non-home page specific title and meta tags -->
+  <title>{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}</title>
+  <meta
+    name="title"
+    content="{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}"
+  />
+{{ end }}
+
+
+<!-- Open Graph meta tag for specifying the title of the page -->
+<meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
+<!-- Twitter meta tag for specifying the title of the page -->
+<meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}" />
+<!-- Meta tag for structured data, specifying the name of the page -->
+<meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}" />
+<!-- Meta tag for the application name -->
+<meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
+<!-- Open Graph meta tag for specifying the site name -->
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+<!-- Title element with structured data for name -->
+<title itemprop="name">
+  {{ block "title" . }}{{- .Title }} - {{ .Site.Title -}}{{ end }}
+</title>

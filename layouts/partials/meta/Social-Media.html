@@ -1,0 +1,59 @@
+<!-- Twitter meta tag for specifying the Twitter username of the site -->
+<meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
+
+<!-- Twitter meta tag for specifying the Twitter username of the content creator -->
+<meta name="twitter:creator" content="{{ .Site.Params.twitter }}" />
+
+<!-- Twitter meta tag for specifying the title of the content for Twitter cards -->
+<meta name="twitter:title" content="{{ .Title }}" />
+
+<!-- Twitter meta tag for specifying the description of the content for Twitter cards -->
+<meta
+  name="twitter:description"
+  content="{{ .Params.Summary | default .Params.Description }}"
+/>
+
+<!-- Twitter meta tag for specifying the image associated with the content for Twitter cards -->
+<meta
+  name="twitter:image"
+  content="{{ with .Params.image }}{{ .Permalink }}{{ end }}"
+/>
+
+<!-- Dublin Core meta tags for providing metadata about the content -->
+
+<!-- DC.title: The title of the content -->
+<meta name="DC.title" content="{{ .Title }}" />
+
+<!-- DC.creator: The name of the creator/author of the content -->
+<meta name="DC.creator" content="{{ .Site.Author.name }}" />
+
+<!-- DC.subject: The keywords associated with the content, joined by commas -->
+<meta name="DC.subject" content="{{ .Params.keywords }}" />
+
+<!-- DC.description: The description or summary of the content -->
+<meta name="DC.description" content="{{ .Summary | default .Description }}" />
+
+<!-- DC.publisher: The name of the publisher, typically the site title -->
+<meta name="DC.publisher" content="{{ .Site.Title }}" />
+
+<!-- DC.date: The publication date of the content in "YYYY-MM-DD" format -->
+<meta name="DC.date" content="{{ .Date.Format "2006-01-02" }}" />
+
+<!-- DC.language: The language code of the content, e.g., "en" for English -->
+<meta name="DC.language" content="{{ .Site.LanguageCode }}" />
+
+<!-- Author meta tag for specifying the author of the site -->
+{{ with .Site.Author.name }}
+  <meta name="author" content="{{ . }}" />
+{{ end }}
+
+
+<!-- Links meta tags for specifying the author's social media profiles -->
+{{ with .Site.Author.links }}
+  {{ range $links := . }}
+    {{ range $name, $url := $links }}
+      <!-- Link to the author's social media profile -->
+      <link href="{{ $url }}" rel="me" />
+    {{ end }}
+  {{ end }}
+{{ end }}

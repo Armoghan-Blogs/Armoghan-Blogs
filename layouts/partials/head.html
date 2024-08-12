@@ -14,6 +14,8 @@
   <!-- Tile Color for Windows browsers -->
   <meta name="msapplication-TileColor" content="#141414" />
 
+  <link rel="canonical" href="{{ .Permalink }}" />
+
   <!-- Site Verification Meta Tags -->
 
   {{/* Google Site Verification */}}
@@ -50,7 +52,8 @@
 
 
   <!-- Firebase -->
-  {{/* {{- partial "meta/firebase.html" . -}} */}}
+  {{- partial "meta/firebase.html" . -}}
+
 
   <!-- Vendor-specific Assets -->
   {{/* Include vendor-specific CSS or JavaScript files */}}
@@ -68,4 +71,51 @@
 
 
   <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
+
+  <!-- ======================================================================== -->
+  <!-- ========================== Hugo SEO Meta Tags ========================== -->
+  <!-- ======================================================================== -->
+
+  <!-- Favicon meta tags -->
+  {{- partial "meta/favicons.html" . -}}
+
+
+  <!-- Social Media meta tags -->
+  {{- partial "meta/Social-Media.html" . -}}
+
+
+  <!-- Other meta tags -->
+  {{- partial "meta/Other.html" . -}}
+
+
+  <!-- Search Engine Crawler meta tags -->
+  {{- partial "meta/Search-Engine-Crawler.html" . -}}
+
+
+  <!-- Link meta tags -->
+  {{- partial "meta/Link.html" . -}}
+
+
+  <!-- Language meta tags -->
+  {{- partial "meta/Language.html" . -}}
+
+
+  <!-- Date meta tags -->
+  {{- partial "meta/Date.html" . -}}
+
+
+  <!-- Article meta tags -->
+  {{- partial "meta/Article.html" . -}}
+
+
+  <!-- Website meta tags -->
+  {{- partial "meta/Website.html" . -}}
+
+
+  <!-- Description meta tags -->
+  {{- partial "meta/Description.html" . -}}
+
+
+  <!-- Title meta tags -->
+  {{- partial "meta/Title.html" . -}}
 </head>
