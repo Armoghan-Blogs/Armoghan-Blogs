@@ -5,6 +5,7 @@
 [![Forks](https://img.shields.io/github/forks/Armoghan-Blogs/Armoghan-Blogs?style=social)](https://github.com/Armoghan-Blogs/Armoghan-Blogs)
 
 [![CodeQL Analysis 🧩](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/github-code-scanning/codeql)
 [![Dependency Review 🔍](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependency-review.yml)
 [![Dependabot Updates](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/actions/workflows/dependabot/dependabot-updates)
 [![GitHub](https://img.shields.io/github/license/Armoghan-Blogs/Armoghan-Blogs)](https://github.com/Armoghan-Blogs/Armoghan-Blogs/blob/main/LICENSE)
