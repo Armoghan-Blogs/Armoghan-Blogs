@@ -10,7 +10,6 @@ HUGO_ENABLEGITINFO = "true" # Enable Git information for Hugo
 HUGO_ENV = "production"     # Set environment to production
 HUGO_VERSION = "0.125.0"    # Specify the latest Hugo version with extended support
 NODE_VERSION = "22.6.0"    # Specify Node.js version
-NODE_ENV = "production"     # Set Node environment to production
 
 # Caching configuration
 [build.cache]
