@@ -17,23 +17,10 @@ paths = ["node_modules", "public"] # Cache node_modules and public directories
 
 # Build optimization settings
 [build.processing]
-image = {
-  quality = 80,
-
-}
-
+image = {quality = 80, formats = ["webp","jpeg","jpg","png","svg","gif","bmp","tiff","ico",]}
 html = { minify = true } # Enable HTML minification
-formats = [
-  "webp",
-  "jpeg",
-  "jpg",
-  "png",
-  "svg",
-  "gif",
-  "bmp",
-  "tiff",
-  "ico",
-] # Configure image optimization for various formats
+
+ # Configure image optimization for various formats
 [build.processing.js]
 minify = true # Minify JavaScript files
 
