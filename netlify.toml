@@ -9,6 +9,7 @@ GO111MODULE = "on"          # Enable Go modules
 HUGO_ENABLEGITINFO = "true" # Enable Git information for Hugo
 HUGO_ENV = "production"     # Set environment to production
 HUGO_VERSION = "0.125.0"    # Specify the latest Hugo version with extended support
+NODE_VERSION = "22.6.0"    # Specify Node.js version
 NODE_ENV = "production"     # Set Node environment to production
 
 # Caching configuration
@@ -17,19 +18,21 @@ paths = ["node_modules", "public"] # Cache node_modules and public directories
 
 # Build optimization settings
 [build.processing]
-image = {quality = 80, formats = ["webp","jpeg","jpg","png","svg","gif","bmp","tiff","ico",]}
 html = { minify = true } # Enable HTML minification
+css = { minify = true }  # Enable CSS minification
+js = { minify = true }   # Enable JavaScript minification
 
 [build.processing.images]
-auto = true  # Automatically optimize images
-cache = true # Cache optimized images for faster builds
-quality = 85 # Increase image quality slightly for production
+auto = true       # Automatically optimize images
+cache = true      # Cache optimized images for faster builds
+quality = 85      # Increase image quality slightly for production
+formats = ["webp", "jpeg", "jpg", "png", "svg", "gif", "bmp", "tiff", "ico", "heif", "avif", "raw", "pdf"] # Specify image formats
 
 # Deploy preview settings
 [context.deploy-preview]
 HUGO_ENV = "preview"
 command = "hugo --gc --cleanDestinationDir --minify --buildFuture --buildDrafts -b $DEPLOY_PRIME_URL"
-publish = "public"                                                                                    # Directory to publish for deploy previews
+publish = "public" # Directory to publish for deploy previews
 
 # Production deployment settings
 [context.production]
@@ -41,4 +44,4 @@ publish = "public"        # Directory to publish for production
 [context.branch-deploy]
 HUGO_ENV = "branch"
 command = "hugo --gc --cleanDestinationDir --minify --buildFuture --buildDrafts"
-publish = "public"                                                               # Directory to publish for branch-specific deployments
+publish = "public"        # Directory to publish for branch-specific deployments
