@@ -22,6 +22,7 @@ commitlint.config.js
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 SECURITY.md
+layouts/_default/index.json
 
 # Ignore SVG files
 *.svg
